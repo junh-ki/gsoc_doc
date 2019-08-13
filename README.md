@@ -9,16 +9,14 @@
 ### 4. Contents
 ### 5. Diagram Example
 ### 6. Instruction
-### 7. Remarks
-### 8. Updates (Phase 2: June/24 ~ July/21)
 
 # 1. Milestone with the goal of each phase
-- Response Time Analysis_CPU Part (Phase 1)
-- **Refine Previous Phase & E2E Latency Foundation (EC, IC, LET) (Phase 2: June/24 ~ July/21)**
-- Finalize LET, EC, IC and the corresponding UI part (Phase 3)
+- Response Time Analysis_CPU Part / Documenting for Phase 1 (Phase 1)
+- Refine Previous Phase & E2E Latency Foundation (EC, IC, LET) / Documenting for Phase 2 (Phase 2)
+- Finalize LET, EC, IC and the corresponding UI part / Documenting for Phase 3 (Phase 3)
 
 # 2. Intention
-The current APP4MC library does provide several methods which are useful for deriving execution time for a task, a runnable or ticks (pure computation) through the Util package. But methods for response time are still not available. The reason is that response time analysis can be varied depending on the analyzed model so it is hard to be generalized. But since the trends are evolving from homogeneous to heterogeneous platform, the analysis methodology have become much more sophisticated so it is necessary to have CPU response time analysis which can be used for different mapping analysis with a different processing unit type (e.g., GPU).
+The current APP4MC library provides several methods for getting execution time for a task, a runnable or ticks (pure computation) through the util package. However, libraries for response time analysis do not exist yet. The reason why is that response time analysis can be varied depending on the analyzed model that it is hard to be generalized. Since the trends are evolving from homogeneous to heterogeneous platform, the analysis methodology have become much more sophisticated that it is necessary to have a generic CPU response time analysis which can be used for different mapping models with different types of processing unit (e.g., GPU). The project also aims to offer End-to-End Latency analysis with some newly defined concepts such as Reaction & Age. This is intended to help users to analyze how much time would be taken for some data to be propagated from the beginning to the end of a given chain of tasks. Not only this, a visually described mapping model with information about schedulability and the corresponding response time for each task and E2E latency analysis depending upon each task chain model are intended to be provided through a User Interface window.
 
 # 3. Contribution & benefits for the community
 In this project, [a standardized response time analysis methodology](https://www.semanticscholar.org/paper/Finding-Response-Times-in-a-Real-Time-System-Joseph-Pandya/574517d6e47cf9b368003a56088651a1941dcda1)(Mathai Joseph and Paritosh Pandya, 1986) which involves a complex algorithm is used. Not only this, but also a class, `CpuRTA` which is designed for Generic Algorithm Mapping is provided. Since a heterogeneous platfrom usually requires a different analysis methodology for a processing unit according to its type(e.g., CPU & GPU), a class that can be used with GA Mapping and has a built-in general analysis methodology would be very helpful and save a lot of time which otherwise would be spent for implementing the same algorithm for those tasks that are mapped to a particular type of processing units (e.g., CPU). Along with these, another class, `RuntimeUtilRTA` which supports `CpuRTA` class provides several ways to calculate execution time of a task is also provided. The execution time calculation methodology can be different depending on an execution case (e.g., Worst Case, Best Case, Average Case), a transmission type (e.g., Synchronous, Asynchronous) or a different mapping model. This class can be modified and reused for other analysis models if only a method which takes care of a Runnable execution time is adjusted.
