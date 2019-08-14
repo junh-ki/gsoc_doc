@@ -27,7 +27,6 @@ Do you like GSoC?
 Image Test 2)
 
 .. image:: _static/Polar_Express.jpg 
-	:alt: alternate text
 
 Do you like Polar Express?
 
