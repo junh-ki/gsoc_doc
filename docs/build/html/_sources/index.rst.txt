@@ -12,6 +12,61 @@ If :math:`\sigma_{1}` equals :math:`\sigma_{2}` then etc, etc.
 
 :math:`R_i = C_i + \sum_{j \in hp(i)} \lceil \frac {R_i} {T_j} \rceil C_j`
 
+Image Test 1)
+
+.. image:: images/GSoC_image.png
+	:height: 10cm
+	:width: 100%
+	:scale: 100%
+	:alt: alternate text
+	:align: left
+
+Do you like GSoC?
+
+
+Image Test 2)
+
+.. image:: images/Polar_Express.jpg 
+	:alt: alternate text
+
+Do you like Polar Express?
+
+
+
+.. _making-a-table:
+
+Making a table
+==============
+
+This shows you how to make a table
+
+==================   ============
+Name                 Age
+==================   ============
+John D Hunter        40
+Cast of Thousands    41
+And Still More       42
+==================   ============
+
+.. _making-links:
+
+Making links
+============
+
+It is easy to make a link to `yahoo <http://yahoo.com>`_ or to some
+section inside this document (see :ref:`making-a-table`) or another
+document.
+
+You can also reference classes, modules, functions, etc that are
+documented using the sphinx `autodoc
+<http://sphinx.pocoo.org/ext/autodoc.html>`_ facilites.  For example,
+see the module :mod:`matplotlib.backend_bases` documentation, or the
+class :class:`~matplotlib.backend_bases.LocationEvent`, or the method
+:meth:`~matplotlib.backend_bases.FigureCanvasBase.mpl_connect`.
+
+
+
+
 
 Contents
 ^^^^^^^^
