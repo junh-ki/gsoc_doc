@@ -26,7 +26,7 @@ Do you like GSoC?
 
 Image Test 2)
 
-.. image:: _static/Polar_Express.jpg 
+.. figure:: _static/Polar_Express.jpg 
 
 Do you like Polar Express?
 
