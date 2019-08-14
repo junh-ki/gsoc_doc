@@ -32,6 +32,10 @@ Image Test 2)
 Do you like Polar Express?
 
 
+ReadTheDocs Image Test 
+
+Open this :download:`example <_static/GSoC_image.png>` input file to see the following result:
+
 
 .. _making-a-table:
 
