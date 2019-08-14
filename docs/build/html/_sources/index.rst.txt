@@ -8,21 +8,10 @@ Here is some text explaining some very complicated stuff.::
 
 If :math:`\sigma_{1}` equals :math:`\sigma_{2}` then etc, etc.
 
-$$
-R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j
-$$
+:math:`\underline{x}=[  x_{1}, ...,  x_{n}]^{T}`
 
-$ R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j $
+:math:`R_i = C_i + \sum_{j \in hp(i)} \lceil \frac {R_i} {T_j} \rceil C_j`
 
-$R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j$
-
-$$
-{R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j}
-$$
-
-$ {R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j} $
-
-${R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j}$
 
 Contents
 ^^^^^^^^
