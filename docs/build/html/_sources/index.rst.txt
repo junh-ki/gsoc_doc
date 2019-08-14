@@ -1,14 +1,28 @@
 GSoC 2019 - CPU-GPU Response Time and Mapping Analysis
 ======================================================
 
-
-Another simple header
-=====================
-
 Here is some text explaining some very complicated stuff.::
 
 	print 'hello'
 	>> hello
+
+If :math:`\sigma_{1}` equals :math:`\sigma_{2}` then etc, etc.
+
+$$
+R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j
+$$
+
+$ R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j $
+
+$R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j$
+
+$$
+{R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j}
+$$
+
+$ {R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j} $
+
+${R_i = C_i + \sum_{j\in hp(i)}\lceil\frac{R_i}{T_j}\rceil C_j}$
 
 Contents
 ^^^^^^^^
