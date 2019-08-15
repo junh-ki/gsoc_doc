@@ -24,13 +24,13 @@ Contents
 .. toctree::
    :maxdepth: 3
    
-   Intention <intention>   
-   Contribution & Benefits for The Community <contribution>
-   Milestone with The Goal of Each Phase <milestone>
-   Implementation (APP4RTA) <implementation>
-   Future Work <future>
-   Reference <reference>
-   Contact <contact>
+   Intention <contents/intention>   
+   Contribution & Benefits for The Community <contents/contribution>
+   Milestone with The Goal of Each Phase <contents/milestone>
+   Implementation (APP4RTA) <contents/implementation>
+   Future Work <contents/future>
+   Reference <contents/reference>
+   Contact <contents/contact>
 
 Indices and tables
 ==================
