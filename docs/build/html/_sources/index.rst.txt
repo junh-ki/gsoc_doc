@@ -17,7 +17,7 @@ Image Test 1)
 .. image:: _images/GSoC_image.png
 	:target: _images/GSoC_image.png
 	:height: 10cm
-	:width: 100%
+	:width: 600
 	:scale: 100%
 	:alt: alternate text
 	:align: left
@@ -29,6 +29,7 @@ Image Test 2)
 
 .. figure:: _images/Polar_Express.jpg 
 	:target: _images/Polar_Express.jpg
+	:width: 600
 
 Do you like Polar Express?
 
