@@ -40,7 +40,8 @@ extensions = [
     'sphinx.ext.todo', 
     'sphinx.ext.mathjax', 
 	'sphinx.ext.ifconfig', 
-	'sphinx_rtd_theme'
+	'sphinx_rtd_theme',
+	'recommonmark'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
