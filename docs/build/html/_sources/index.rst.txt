@@ -15,11 +15,8 @@ If :math:`\sigma_{1}` equals :math:`\sigma_{2}` then etc, etc.
 Image Test 1)
 
 .. image:: _images/GSoC_image.png
-	:target: _images/GSoC_image.png
-	:height: 10cm
 	:width: 600
-	:scale: 100%
-	:alt: alternate text
+	:alt: GSoC Image
 	:align: left
 
 Do you like GSoC?
@@ -28,7 +25,6 @@ Do you like GSoC?
 Image Test 2)
 
 .. figure:: _images/Polar_Express.jpg 
-	:target: _images/Polar_Express.jpg
 	:width: 600
 
 Do you like Polar Express?
