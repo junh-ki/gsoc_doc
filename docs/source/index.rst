@@ -15,9 +15,6 @@ Since this topic’s ultimate goal is to achieve systems' Real-Time determinism 
 
 Now the industry's interest has been moving on to "Heterogeneous Systems", and I do hope that my GSoC project will be helpful for other researchers in this regard and make a contribution to the further development of the platform.
 
-Best regards,
-Ki, Junhyung
-
 Contents
 ########
 

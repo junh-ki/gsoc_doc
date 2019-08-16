@@ -5,8 +5,8 @@ Implementation (APP4RTA)
 Approached Theories
 ###################
 
-<Basic RTA>
-===========
+Basic RTA
+=========
 
 1. Memory Accessing Time
 ************************
@@ -45,8 +45,8 @@ Basically, the classic response time analysis equation is used.
 The equation is based on RMS (Rate Monotonic Scheduling) which means the static priorities are assigned according to the period of the task, so a task with the shorter period results in a higher task priority.
 Here, R_i denotes the response time of a task with i-th priority in the set of tasks where hp(i) is the set of tasks with priority higher than task i.
 
-<End to End Latency>
-====================
+End to End Latency
+==================
 
 The approach & equations used here are referenced from a yet-unpublished paper, "Model-based Task Chain Latency and Blocking Analysis for Automotive Software" by the same author who published `CPU-GPU Response Time and Mapping Analysis for High-Performance Automotive Systems <https://www.ecrts.org/forum/viewtopic.php?f=43&t=134&sid=777ff03160a9434451d721748c8a8aea#p264>`_.
 
