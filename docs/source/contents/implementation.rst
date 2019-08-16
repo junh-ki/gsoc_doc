@@ -2,8 +2,8 @@
 Implementation (APP4RTA)
 ************************
 
-A. Approached Theories
-######################
+Approached Theories
+###################
 
 <Basic RTA>
 ===========
@@ -50,7 +50,7 @@ Here, R_i denotes the response time of a task with i-th priority in the set of t
 
 The approach & equations used here are referenced from a yet-unpublished paper, "Model-based Task Chain Latency and Blocking Analysis for Automotive Software" by the same author who published `CPU-GPU Response Time and Mapping Analysis for High-Performance Automotive Systems <https://www.ecrts.org/forum/viewtopic.php?f=43&t=134&sid=777ff03160a9434451d721748c8a8aea#p264>`_.
 
-4. Task Chain Reaction
+1. Task Chain Reaction
 **********************
 
 The time between the task chain's first task release to the earliest task response of the last task in the chain.
@@ -76,7 +76,7 @@ The best-case task chain reaction latency for LET communication is the sum of al
 
 :math:`\delta_{\gamma,\rho, \lambda}^+= T_{j=0}+\sum_{j=1}^{j=|\gamma|-1} \left(2\cdot T_{j}\right) \text{ with } \tau_j \in \gamma`
 
-5. Task Chain Age
+2. Task Chain Age
 *****************
 
 The time a task chain result is initially available until the next task chain instance's initial results are available.
@@ -90,7 +90,7 @@ A task chain age latency equals the chain's last (response) task age latency, i.
 
 :math:`\delta_{i,\alpha}^+ = 2 \cdot T_i - R_i^- - (T_i - R_i^+) = T_i - R_i^- + R_i^+`
 
-6. Reaction Update
+3. Reaction Update
 ******************
 
 Due to the fact that tasks can have varying periods across the task chain, propagation between task chain entities can be over or under sampled such that a task X's result (a) serves as an input for several subsequent task chain entity instances or (b) does not serve as an input at all due to the fact that the subsequent task can already work with newer results produced by X's next instance.
@@ -109,7 +109,7 @@ Accordingly, the reaction update is the subtraction of two consecutive task chai
 
 :math:`\delta_{\gamma, \upsilon, \iota}^+ = \max_{k} \left(T_{j=0} + \delta_{\gamma, \rho 0, \iota, k+1}^+ - \delta_{\gamma, \rho , \iota, k}^- \right)`
 
-7. Data Age
+4. Data Age
 ***********
 
 It describes the longest time some data version persists in memory. 
@@ -125,18 +125,44 @@ with :math:`\tau_i` being any task that accesses label :math:`l`.
 :math:`\delta_{l,\alpha}^- = \min_i \delta_{i,\alpha}^- %R_i^- + (T_i - R_i^+)` 
 with :math:`\tau_i` being any task that accesses label :math:`l`.
 
-B. Class Tree with Implemented Methods
-######################################
+Class Tree with Implemented Methods
+###################################
+
+.. image:: /_images/Class_Diagram.png
+	:width: 800
+	:alt: Class Diagram
+
+The above class diagram describes the entire project in a hierarchical way.
+
+Key Classes
+===========
+
+* `E2ELatency` 
+The top layer, it takes care of End-to-End latency of the observed task-chain based on the analyzed response time from CPURta. Being responsible for calculating E2E latency according to the concepts stated in the theory part (e.g., Reaction, Age).
+
+* `CPURta` 
+The middle layer, it takes care of analyzing task response time. Being responsible for calculating response time according to the communication paradigm (Direct or Implicit communication paradigm). 
+
+* `RTARuntimeUtil` 
+The botton layer, it takes care of task & runnable execution time. Being responsible for calculating memory access cost, ticks (a.k.a execution need) computation time.
+
+Supplementary Classes
+=====================
+
+* `SharedConsts`
+
+* `CommonUtils`
+
+* `Contention`
+
+
+APP4RTA User Interface
+######################
 
 
 
-C. APP4RTA User Interface
-#########################
-
-
-
-D. Git Repository
-#################
+Git Repository
+##############
 
 
 

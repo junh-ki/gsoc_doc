@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = u'GSoC 2019 - CPU-GPU Response Time and Mapping Analysis'
+project = u'(GSoC 2019) CPU-GPU Response Time and Mapping Analysis'
 copyright = '2019, Junhyung Ki'
 author = 'Junhyung Ki'
 
