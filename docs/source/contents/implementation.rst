@@ -2,11 +2,23 @@
 **Implementation (APP4RTA)**
 ****************************
 
+|
+|
+|
+|
+
 **Approached Theories**
 #######################
 
+|
+|
+|
+
 **Basic RTA**
 *************
+
+|
+|
 
 .. _memory-accessing-cost:
 
@@ -21,6 +33,9 @@ The equation for deriving this is referenced from one of WATERS19 projects, `CPU
 
 The constant 64 is used here as the baseline derived from the challenge WATERS19.
 Here, :math:`ls` denotes the label size and :math:`rl` and :math:`wl` define given read label and write label latencies specified in the given AMALTHEA model.
+
+|
+|
 
 .. _offloading-mechanism:
 
@@ -38,6 +53,9 @@ The triggering task triggers its target GPU task when it reaches `InterProcessSt
 
 The triggering task triggers its target GPU task when it reaches `InterProcessStimulus` and does not wait for the response from the triggered GPU task and finishes the remaining job. The asynchronous methodology described here can be modified according to the user's interpretation.
 
+|
+|
+
 .. _response-time:
 
 **3. Response Time**
@@ -53,6 +71,10 @@ Here, R_i denotes the response time of a task with i-th priority in the set of t
 
 To find relevant methods, see :ref:`method-response-time-sum`.
 
+|
+|
+|
+
 .. _e2e-latency:
 
 **End to End Latency**
@@ -60,12 +82,17 @@ To find relevant methods, see :ref:`method-response-time-sum`.
 
 The approach & equations used here are referenced from a yet-unpublished paper, "Model-based Task Chain Latency and Blocking Analysis for Automotive Software" by the same author who published `CPU-GPU Response Time and Mapping Analysis for High-Performance Automotive Systems <https://www.ecrts.org/forum/viewtopic.php?f=43&t=134&sid=777ff03160a9434451d721748c8a8aea#p264>`_.
 
+|
+|
+
 .. _task-chain-reaction:
 
 **1. Task Chain Reaction**
 ==========================
 
 The time between the task chain's first task release to the earliest task response of the last task in the chain.
+
+|
 
 .. _task-chain-reaction-implicit:
 
@@ -85,6 +112,8 @@ Here, :math:`\gamma` refers to a task chain, :math:`\rho` corresponds the reacti
 
 To find relevant methods, see :ref:`method-task-chain-reaction-implicit`.
 
+|
+
 .. _task-chain-reaction-let:
 
 **Task Chain Reaction (LET)**
@@ -101,6 +130,9 @@ The best-case task chain reaction latency for LET communication is the sum of al
 :math:`\delta_{\gamma,\rho, \lambda}^+= T_{j=0}+\sum_{j=1}^{j=|\gamma|-1} \left(2\cdot T_{j}\right) \text{ with } \tau_j \in \gamma`
 
 To find relevant methods, see :ref:`method-task-chain-reaction-let`.
+
+|
+|
 
 .. _task-chain-age:
 
@@ -120,12 +152,17 @@ A task chain age latency equals the chain's last (response) task age latency, i.
 
 To find relevant methods, see :ref:`method-task-chain-age`.
 
+|
+|
+
 .. _reaction-update:
 
 **3. Reaction Update**
 ======================
 
 Due to the fact that tasks can have varying periods across the task chain, propagation between task chain entities can be over or under sampled such that a task X's result (a) serves as an input for several subsequent task chain entity instances or (b) does not serve as an input at all due to the fact that the subsequent task can already work with newer results produced by X's next instance.
+
+|
 
 .. _early-reaction:
 
@@ -140,6 +177,8 @@ Due to the fact that tasks can have varying periods across the task chain, propa
 
 To find relevant methods, see :ref:`method-task-chain-early-reaction`.
 
+|
+
 .. _reaction-update-equation:
 
 **Reaction Update**
@@ -148,6 +187,9 @@ To find relevant methods, see :ref:`method-task-chain-early-reaction`.
 Accordingly, the reaction update is the subtraction of two consecutive task chains instances best case early reaction and worst case early reaction.
 
 :math:`\delta_{\gamma, \upsilon, \iota}^+ = \max_{k} \left(T_{j=0} + \delta_{\gamma, \rho 0, \iota, k+1}^+ - \delta_{\gamma, \rho , \iota, k}^- \right)`
+
+|
+|
 
 .. _data-age:
 
@@ -169,6 +211,11 @@ with :math:`\tau_i` being any task that accesses label :math:`l`.
 
 To find relevant methods, see :ref:`method-data-age`.
 
+|
+|
+|
+|
+
 **Class Tree with Implemented Methods**
 #######################################
 
@@ -178,12 +225,21 @@ To find relevant methods, see :ref:`method-data-age`.
 
 The above class diagram describes the entire project in a hierarchical way.
 
+|
+|
+|
+
 **Key Classes**
 ***************
+
+|
+|
 
 **1. E2ELatency**
 =================
 The top layer, it takes care of End-to-End latency of the observed task-chain based on the analyzed response time from CPURta. Being responsible for calculating E2E latency according to the concepts stated in the theory part (e.g., Reaction, Age).
+
+|
 
 .. _method-task-chain-reaction-implicit:
 
@@ -194,11 +250,15 @@ The top layer, it takes care of End-to-End latency of the observed task-chain ba
 
 	public Time getImplicitReactionBC(final EventChain ec, final CPURta cpurta)
 
+This method derives 
+
 .. code-block:: java
 
 	public Time getImplicitReactionWC(final EventChain ec, final CPURta cpurta)
 
 For the details, see :ref:`task-chain-reaction-implicit`
+
+|
 
 .. _method-task-chain-reaction-let:
 
@@ -215,6 +275,8 @@ For the details, see :ref:`task-chain-reaction-implicit`
 
 For the details, see :ref:`task-chain-reaction-let`
 
+|
+
 .. _method-task-chain-age:
 
 **Task Chain Age**
@@ -225,6 +287,8 @@ For the details, see :ref:`task-chain-reaction-let`
 	public Time getTaskChainAge(final EventChain ec, final TimeType executionCase, final CPURta cpurta)
 
 For the details, see :ref:`task-chain-age`
+
+|
 
 .. _method-task-chain-early-reaction:
 
@@ -239,6 +303,8 @@ This is to calculate Reaction Update.
 
 For the details, see :ref:`early-reaction`
 
+|
+
 .. _method-data-age:
 
 **Data Age**
@@ -250,9 +316,14 @@ For the details, see :ref:`early-reaction`
 
 For the details, see :ref:`data-age`
 
+|
+|
+
 **2. CPURta**
 =============
 The middle layer, it takes care of analyzing task response time. Being responsible for calculating response time according to the communication paradigm (Direct or Implicit communication paradigm). 
+
+|
 
 .. _method-response-time-sum:
 
@@ -265,6 +336,8 @@ The middle layer, it takes care of analyzing task response time. Being responsib
 
 Things to explain
 
+|
+
 .. _method-response-time-direct:
 
 **Response Time (Direct Communication Paradigm)**
@@ -273,6 +346,8 @@ Things to explain
 .. code-block:: java
 
 	public Time preciseTestCPURT(final Task task, final List<Task> taskList, final TimeType executionCase, final ProcessingUnit pu)
+
+|
 
 .. _method-response-time-implicit:
 
@@ -285,9 +360,14 @@ Things to explain
 
 For the details, see :ref:`response-time`
 
+|
+|
+
 **3. RTARuntimeUtil**
 =====================
 The botton layer, it takes care of task & runnable execution time. Being responsible for calculating memory access cost, ticks (a.k.a execution need) computation time.
+
+|
 
 .. _method-task-execution-time:
 
@@ -304,6 +384,8 @@ talk about memory accessing cost
 
 For the details, see :ref:`memory-accessing-cost`
 
+|
+
 .. _method-local-copy-implicit:
 
 **Local Copy Cost for the Implicit Communication Paradigm**
@@ -313,12 +395,22 @@ For the details, see :ref:`memory-accessing-cost`
 
 	public Time[] getLocalCopyTimeArray(final Task task, final ProcessingUnit pu, final TimeType executionCase, final CPURta cpurta)
 
+|
+|
+|
+
+
 **Supplementary Classes (Out of scope)**
 ****************************************
+
+|
+|
 
 **1. SharedConsts**
 ===================
 
+|
+|
 
 **2. CommonUtils**
 ==================
@@ -327,9 +419,14 @@ For the details, see :ref:`memory-accessing-cost`
 
 	public static List<ProcessingUnit> getPUs(final Amalthea amalthea)
 
+|
+
 .. code-block:: java
 
 	public static Time getStimInTime(final Task t)
+
+|
+|
 
 **3. Contention**
 =================
@@ -338,9 +435,18 @@ For the details, see :ref:`memory-accessing-cost`
 
 	public Time contentionForTask(final Task task)
 
+|
+|
+|
+|
+
 **APP4RTA User Interface**
 ##########################
 
+|
+|
+|
+|
 
 **Git Repository**
 ##################
