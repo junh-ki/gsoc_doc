@@ -436,7 +436,7 @@ referenced paper
 
 referenced equation
 
-:math:`C_{i}^0 = \sum_{l \in I_i} \xi_l (x)`
+:math:`C_{i}^0, C_{i}^last = \sum_{l \in I_i} \xi_l (x)`
 
 
 
