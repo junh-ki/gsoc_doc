@@ -2,6 +2,9 @@
 (GSoC 2019) CPU-GPU Response Time and Mapping Analysis
 ******************************************************
 
+.. figure:: /_images/gsoc_logo.png 
+	:width: 400
+
 Motivation
 ##########
 
@@ -14,6 +17,8 @@ The project resulted in completing an application delivering performance metric 
 Since this topic’s ultimate goal is to achieve systems' Real-Time determinism with HPC(High Performance Computing), analyzing Response Time is essential and I thought my basic knowledge of things like time constraints, End-to-End Event Chain Latencies according to the different communication paradigms (IC, LET) which I have gotten through the Master's study would be very helpful for this project. 
 
 Now the industry's interest has been moving on to "Heterogeneous Systems", and I do hope that my GSoC project will be helpful for other researchers in this regard and make a contribution to the further development of the platform.
+
+Ki, Junhyung
 
 Contents
 ########
