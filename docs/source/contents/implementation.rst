@@ -51,6 +51,8 @@ Basically, the classic response time analysis equation is used.
 The equation is based on RMS (Rate Monotonic Scheduling) which means the static priorities are assigned according to the period of the task, so a task with the shorter period results in a higher task priority.
 Here, R_i denotes the response time of a task with i-th priority in the set of tasks where hp(i) is the set of tasks with priority higher than task i.
 
+To find relevant methods, see :ref:`method-response-time-sum`.
+
 .. _e2e-latency:
 
 **End to End Latency**
@@ -65,6 +67,11 @@ The approach & equations used here are referenced from a yet-unpublished paper, 
 
 The time between the task chain's first task release to the earliest task response of the last task in the chain.
 
+.. _task-chain-reaction-implicit:
+
+**Task Chain Reaction (Implicit)**
+----------------------------------
+
 * **Best-case Task-Chain Reaction (Implicit Communication Paradigm)**
 
 :math:`\delta_{\gamma,\rho,\iota} ^-=\sum_j R_{j}^- \text{ with } \tau_j \in \gamma`
@@ -76,6 +83,13 @@ Here, :math:`\gamma` refers to a task chain, :math:`\rho` corresponds the reacti
 
 :math:`\delta_{\gamma,\rho,\iota}^+ = \sum_{j=0}^{j=|\gamma|-2} \left(2\cdot T_{j}\right) +R_{j = |\gamma|-1}^+ \text{ with } \tau_j \in \gamma`
 
+To find relevant methods, see :ref:`method-task-chain-reaction-implicit`.
+
+.. _task-chain-reaction-let:
+
+**Task Chain Reaction (LET)**
+-----------------------------
+
 * **Best-case Task-Chain Reaction (Logical Execution Time)**
 
 :math:`\delta_{\gamma,\rho,\lambda} ^- = \sum_j T_{j} \text{ with } \tau_j \in \gamma`
@@ -85,6 +99,8 @@ The best-case task chain reaction latency for LET communication is the sum of al
 * **Worst-case Task-Chain Reaction (Logical Execution Time)**
 
 :math:`\delta_{\gamma,\rho, \lambda}^+= T_{j=0}+\sum_{j=1}^{j=|\gamma|-1} \left(2\cdot T_{j}\right) \text{ with } \tau_j \in \gamma`
+
+To find relevant methods, see :ref:`method-task-chain-reaction-let`.
 
 .. _task-chain-age:
 
@@ -102,6 +118,8 @@ A task chain age latency equals the chain's last (response) task age latency, i.
 
 :math:`\delta_{i,\alpha}^+ = 2 \cdot T_i - R_i^- - (T_i - R_i^+) = T_i - R_i^- + R_i^+`
 
+To find relevant methods, see :ref:`method-task-chain-age`.
+
 .. _reaction-update:
 
 **3. Reaction Update**
@@ -109,7 +127,10 @@ A task chain age latency equals the chain's last (response) task age latency, i.
 
 Due to the fact that tasks can have varying periods across the task chain, propagation between task chain entities can be over or under sampled such that a task X's result (a) serves as an input for several subsequent task chain entity instances or (b) does not serve as an input at all due to the fact that the subsequent task can already work with newer results produced by X's next instance.
 
-* **Early Reaction**
+.. _early-reaction:
+
+**Early Reaction**
+------------------
 
 :math:`\delta_{\gamma, \rho 0, \iota}^+ = R_{\gamma0} + \sum_{j=0}^{j = |\gamma|-2} T_{j+1} + \min(T_{j+1}, \epsilon_j + R_{j+1})`
 
@@ -117,7 +138,12 @@ Due to the fact that tasks can have varying periods across the task chain, propa
 
 :math:`\epsilon_{-1} = 0`
 
-* **Reaction Update**
+To find relevant methods, see :ref:`method-task-chain-early-reaction`.
+
+.. _reaction-update-equation:
+
+**Reaction Update**
+-------------------
 
 Accordingly, the reaction update is the subtraction of two consecutive task chains instances best case early reaction and worst case early reaction.
 
@@ -141,6 +167,8 @@ with :math:`\tau_i` being any task that accesses label :math:`l`.
 :math:`\delta_{l,\alpha}^- = \min_i \delta_{i,\alpha}^- %R_i^- + (T_i - R_i^+)` 
 with :math:`\tau_i` being any task that accesses label :math:`l`.
 
+To find relevant methods, see :ref:`method-data-age`.
+
 **Class Tree with Implemented Methods**
 #######################################
 
@@ -157,89 +185,133 @@ The above class diagram describes the entire project in a hierarchical way.
 =================
 The top layer, it takes care of End-to-End latency of the observed task-chain based on the analyzed response time from CPURta. Being responsible for calculating E2E latency according to the concepts stated in the theory part (e.g., Reaction, Age).
 
-Methods
--------
+.. _method-task-chain-reaction-implicit:
 
-* **Task Chain Reaction (Implicit Communication Paradigm)**
+**Task Chain Reaction (Implicit Communication Paradigm)**
+---------------------------------------------------------
 
-+ getImplicitReactionBC(): Time
+.. code-block:: java
 
-.. image:: /_images/methods/getImplicitReactionBC.png
-	:alt: getImplicitReactionBC
+	public Time getImplicitReactionBC(final EventChain ec, final CPURta cpurta)
 
-+ getImplicitReactionWC(): Time
+.. code-block:: java
 
-.. image:: /_images/methods/getImplicitReactionWC.png
-	:alt: getImplicitReactionWC
+	public Time getImplicitReactionWC(final EventChain ec, final CPURta cpurta)
 
-* **Task Chain Reaction (Logical Execution Time Communication Paradigm)**
+For the details, see :ref:`task-chain-reaction-implicit`
 
-+ getLetReactionBC(): Time
+.. _method-task-chain-reaction-let:
 
-.. image:: /_images/methods/getLetReactionBC.png
-	:alt: getLetReactionBC
+**Task Chain Reaction (Logical Execution Time Communication Paradigm)**
+-----------------------------------------------------------------------
 
-+ getLetReactionWC(): Time
+.. code-block:: java
 
-.. image:: /_images/methods/getLetReactionWC.png
-	:alt: getLetReactionWC
+	public Time getLetReactionBC(final EventChain ec, final CPURta cpurta)
 
-* **Task Chain Age**
+.. code-block:: java
 
-+ getTaskChainAge(): Time
+	public Time getLetReactionWC(final EventChain ec, final CPURta cpurta)
 
-.. image:: /_images/methods/getTaskChainAge.png
-	:alt: getTaskChainAge
+For the details, see :ref:`task-chain-reaction-let`
 
-* **Task Chain Early Reaction**
+.. _method-task-chain-age:
 
-+ getEarlyReaction(): Time
+**Task Chain Age**
+------------------
 
-.. image:: /_images/methods/getEarlyReaction.png
-	:alt: getEarlyReaction
+.. code-block:: java
 
-* **Data Age**
+	public Time getTaskChainAge(final EventChain ec, final TimeType executionCase, final CPURta cpurta)
 
-+ getDataAgeLatency(): Time
+For the details, see :ref:`task-chain-age`
 
-.. image:: /_images/methods/getDataAgeLatency.png
-	:alt: getDataAgeLatency
+.. _method-task-chain-early-reaction:
+
+**Task Chain Early Reaction**
+-----------------------------
+
+.. code-block:: java
+
+	public Time getEarlyReaction(final EventChain ec, final TimeType executionCase, final CPURta cpurta)
+
+This is to calculate Reaction Update.
+
+For the details, see :ref:`early-reaction`
+
+.. _method-data-age:
+
+**Data Age**
+------------
+
+.. code-block:: java
+
+	public Time getDataAge(final Label label, final EventChain ec, final TimeType executionCase, final CPURta cpurta)
+
+For the details, see :ref:`data-age`
 
 **2. CPURta**
 =============
 The middle layer, it takes care of analyzing task response time. Being responsible for calculating response time according to the communication paradigm (Direct or Implicit communication paradigm). 
 
-Methods
--------
+.. _method-response-time-sum:
 
-+ getCPUResponseTimeSum(): Time
+**Response Time Sum**
+---------------------
 
-.. image:: /_images/methods/getCPUResponseTimeSum.png
-	:alt: getCPUResponseTimeSum
+.. code-block:: java
 
-+ preciseTestCPURT(): Time
+	public Time getCPUResponseTimeSum(final TimeType executionCase)
 
-.. image:: /_images/methods/preciseTestCPURT.png
-	:alt: preciseTestCPURT
+Things to explain
 
-+ implicitPreciseTest(): Time
+.. _method-response-time-direct:
 
-.. image:: /_images/methods/implicitPreciseTest.png
-	:alt: implicitPreciseTest
+**Response Time (Direct Communication Paradigm)**
+-------------------------------------------------
+
+.. code-block:: java
+
+	public Time preciseTestCPURT(final Task task, final List<Task> taskList, final TimeType executionCase, final ProcessingUnit pu)
+
+.. _method-response-time-implicit:
+
+**Response Time (Implicit Communication Paradigm)**
+---------------------------------------------------
+
+.. code-block:: java
+
+	public Time implicitPreciseTest(final Task task, final List<Task> taskList, final TimeType executionCase, final ProcessingUnit pu, final CPURta cpurta)
+
+For the details, see :ref:`response-time`
 
 **3. RTARuntimeUtil**
 =====================
 The botton layer, it takes care of task & runnable execution time. Being responsible for calculating memory access cost, ticks (a.k.a execution need) computation time.
 
-+ getExecutionTimeforCPUTask(): Time
+.. _method-task-execution-time:
 
-.. image:: /_images/methods/getExecutionTimeforCPUTask.png
-	:alt: getExecutionTimeforCPUTask
+**CPU Task Execution Time**
+---------------------------
 
-+ getLocalCopyTimeArray(): Time
+.. code-block:: java
 
-.. image:: /_images/methods/getLocalCopyTimeArray.png
-	:alt: getLocalCopyTimeArray
+	public Time getExecutionTimeforCPUTask(final Task task, final ProcessingUnit pu, final TimeType executionCase, final CPURta cpurta)
+
+Things to explain here
+
+talk about memory accessing cost
+
+For the details, see :ref:`memory-accessing-cost`
+
+.. _method-local-copy-implicit:
+
+**Local Copy Cost for the Implicit Communication Paradigm**
+-----------------------------------------------------------
+
+.. code-block:: java
+
+	public Time[] getLocalCopyTimeArray(final Task task, final ProcessingUnit pu, final TimeType executionCase, final CPURta cpurta)
 
 **Supplementary Classes (Out of scope)**
 ****************************************
@@ -251,29 +323,20 @@ The botton layer, it takes care of task & runnable execution time. Being respons
 **2. CommonUtils**
 ==================
 
-Methods
--------
+.. code-block:: java
 
-+ getPUs(Amalthea): List<PU>
+	public static List<ProcessingUnit> getPUs(final Amalthea amalthea)
 
-.. image:: /_images/methods/getPUs.png
-	:alt: getPUs
+.. code-block:: java
 
-+ getStimInTime(Task): Time
-
-.. image:: /_images/methods/getStimInTime.png
-	:alt: getStimInTime
+	public static Time getStimInTime(final Task t)
 
 **3. Contention**
 =================
 
-Methods
--------
+.. code-block:: java
 
-+ contentionForTask(Task): Time
-
-.. image:: /_images/methods/contentionForTask.png
-	:alt: contentionForTask
+	public Time contentionForTask(final Task task)
 
 **APP4RTA User Interface**
 ##########################
