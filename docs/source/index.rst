@@ -4,6 +4,7 @@
 
 .. figure:: /_images/gsoc_logo.png 
 	:width: 400
+	:align: center
 
 Motivation
 ##########
