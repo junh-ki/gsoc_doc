@@ -366,7 +366,7 @@ It is designed for Generic Algorithm mapping so that GA would filter out all map
 
 	public Time preciseTestCPURT(final Task task, final List<Task> taskList, final TimeType executionCase, final ProcessingUnit pu)
 
-This method derives the response time of the observed task according to the classic response time equation.
+This method derives response time of the observed task according to the classic response time equation.
 The response time can be different depending upon the passed taskList which is decided according to the mapping model.
 Here, we are getting response time with RMS (Rate Monotonic Scheduling).
 It means that a task with the shorter period take the higher priority and vice versa.
@@ -383,7 +383,7 @@ So before the taskList is passed to the method, it should be sorted in the order
 
 	public Time implicitPreciseTest(final Task task, final List<Task> taskList, final TimeType executionCase, final ProcessingUnit pu, final CPURta cpurta)
 
-This method derives the response time of the observed task according to the classic response time equation but in the implicit communication paradigm.
+This method derives response time of the observed task according to the classic response time equation but in the implicit communication paradigm.
 In the implicit communication paradigm which is introduced by AUTOSAR, a task copies in its required data (labels) to its local memory in the beginning of execution, computes in the local memory and finally copies out the result to the shared memory.
 Due to these copy-in & copy-out costs, extra time should be added up to the task's execution time and this is done by `getLocalCopyTimeArray` (for the details, see :ref:`method-local-copy-implicit`) which is a method from `RTARuntimeUtil` class.
 As a result, the task's execution time gets longer but its period should be the same as before.
@@ -431,6 +431,9 @@ For the details, see :ref:`memory-accessing-cost`
 referenced paper
 
 `End-To-End Latency Characterization of Implicit and LET Communication Models <https://www.ecrts.org/forum/viewtopic.php?f=32&t=91>`_ by Jorge Martinez
+
+
+
 
 
 
