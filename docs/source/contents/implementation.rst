@@ -172,7 +172,7 @@ To find relevant methods, see :ref:`method-data-age`.
 **Class Tree with Implemented Methods**
 #######################################
 
-.. image:: /_images/Class_Diagram.png
+.. image:: /_images/ClassDiagram.png
 	:width: 800
 	:alt: Class Diagram
 
