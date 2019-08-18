@@ -28,9 +28,12 @@ Contents
    :maxdepth: 3
    
    Intention <contents/intention>   
-   Contribution & Benefits for The Community <contents/contribution>
-   Milestone with The Goal of Each Phase <contents/milestone>
-   Implementation (APP4RTA) <contents/implementation>
+   Contribution & Benefits for the community <contents/contribution>
+   Milestone with the Goal of each phase <contents/milestone>
+   Approached Theories <contents/theories>
+   Implementation <contents/implementation>
+   User Interface (APP4RTA) <contents/ui>
+   Git Repository <contents/repo>
    Future Work <contents/future>
    Reference <contents/reference>
    Contact <contents/contact>

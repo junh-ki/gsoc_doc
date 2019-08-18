@@ -16,7 +16,7 @@ Mid		Task Response Time
 Low		Task & Runnable Execution Time
 =====   ==============================
 
-2. Developing task & runnable level execution time methods with taking memory access cost & offloading mechanism into account (see :ref:`offloading-mechanism`)
+2. Developing task & runnable level execution time methods with taking memory access cost & offloading mechanism into account
 
 3. Testing
 
