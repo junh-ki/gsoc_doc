@@ -9,13 +9,13 @@
 Motivation
 ##########
 
-In one of the subjects in my Master's course, I carried on a project analyzing metrics of Software Models and visualizing it in APP4MC. 
+Through one of the subjects in my Master's course, I carried on a project analyzing metrics of Software Models and visualizing it in APP4MC. 
 
 It was quite challenging as I was not very familiar with Amalthea model and APP4MC platform at first. But soon I was able to understand the concepts and started enjoying it. 
 
-The project resulted in completing an application delivering performance metric and reliability metric of the given Software Model. Which is basically my motivation for participating this Eclipse GSoC topic, "CPU-GPU Response Time and Mapping Analysis".
+The project resulted in completing an application delivering performance & reliability metric of the given Software Model. Which is basically my motivation for participating this Eclipse GSoC project, "CPU-GPU Response Time and Mapping Analysis".
 
-Since this topic’s ultimate goal is to achieve systems' Real-Time determinism with HPC(High Performance Computing), analyzing Response Time is essential and I thought my basic knowledge of things like time constraints, End-to-End Event Chain Latencies according to the different communication paradigms (IC, LET) which I have gotten through the Master's study would be very helpful for this project. 
+Since this topic’s ultimate goal is to achieve systems' Real-Time determinism with HPC(High Performance Computing), analyzing Response Time is essential and I think my basic knowledge of things like time constraints, End-to-End Event Chain Latencies according to the different communication paradigms (IC, LET) which I have gotten through the Master's study was very helpful for me to carry on this project.
 
 Now the industry's interest has been moving on to "Heterogeneous Systems", and I do hope that my GSoC project will be helpful for other researchers in this regard and make a contribution to the further development of the platform.
 
@@ -51,23 +51,6 @@ Here is some text explaining some very complicated stuff.::
 	>> hello
 
 Open this :download:`example <_images/GSoC_image.png>` input file to see the following result:
-
-.. _making-a-table:
-
-Making a table
-==============
-
-This shows you how to make a table
-
-==================   ============
-Name                 Age
-==================   ============
-John D Hunter        40
-Cast of Thousands    41
-And Still More       42
-==================   ============
-
-.. _making-links:
 
 Making links
 ============
