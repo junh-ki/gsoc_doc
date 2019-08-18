@@ -1,7 +1,7 @@
 Contact
 =======
 
-**Email:** kijoonh91@gmail.com
+**Personal Email:** kijoonh91@gmail.com
 
 **Student Email:** junhyung.ki001@stud.fh-dortmund.de
 
