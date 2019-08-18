@@ -17,7 +17,7 @@ The project resulted in completing an application delivering performance & relia
 
 Since this topic’s ultimate goal is to achieve systems' Real-Time determinism with HPC(High Performance Computing), analyzing Response Time is essential and I think my basic knowledge of things like time constraints, End-to-End Event Chain Latencies according to the different communication paradigms (IC, LET) which I have gotten through the Master's study was very helpful for me to carry on this project.
 
-Now the industry's interest has been moving on to "Heterogeneous Systems", and I do hope that my GSoC project will be helpful for other researchers in this regard and make a contribution to the further development of the platform.
+Now that the industry's interest has moved on to "Heterogeneous Systems", I do hope that my GSoC project will be helpful for other researchers in this regard and make a contribution to the further development of the platform.
 
 Ki, Junhyung
 
