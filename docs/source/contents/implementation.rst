@@ -248,7 +248,7 @@ This method derives the given event-chain's best-case end-to-end latency based o
 
 This method derives the given event-chain's worst-case end-to-end latency based on the reaction concept in Implicit communication.
 
-For the details, see :ref:`task-chain-reaction-implicit`
+For the details, see :ref:`task-chain-reaction-implicit`.
 
 |
 
@@ -283,7 +283,7 @@ This method derives the given event-chain's worst-case end-to-end latency based 
 This method derives the given event-chain latency based on the age concept.
 By changing `TimeType executionCase` parameter, the latency in the best-case or the worst-case can be derived.
 
-For the details, see :ref:`task-chain-age`
+For the details, see :ref:`task-chain-age`.
 
 |
 
@@ -300,7 +300,7 @@ This is a method to be pre-executed for getting the reaction-update latency.
 The best-case and worst-case early-reaction latency values should be derived first and then the reaction update latency can be calculated.
 By changing `TimeType executionCase` parameter, the latency in the best-case or the worst-case can be derived.
 
-For the details, see :ref:`early-reaction`
+For the details, see :ref:`early-reaction`.
 
 |
 
@@ -317,7 +317,7 @@ This method derives the given label's age latency.
 If the passed event-chain does not contain the observed label, `null` value is returned.
 By changing `TimeType executionCase` parameter, the latency in the best-case or the worst-case can be derived.
 
-For the details, see :ref:`data-age`
+For the details, see :ref:`data-age`.
 
 |
 
@@ -374,7 +374,7 @@ Due to these copy-in & copy-out costs, extra time should be added up to the task
 As a result, the task's execution time gets longer but its period should be the same as before.
 Once the local-copy cost is taken into account, the remaining process is the same as :ref:`method-response-time-direct`
 
-For the details, see :ref:`response-time`
+For the details, see :ref:`response-time`.
 
 |
 
@@ -399,7 +399,7 @@ This method derives execution time of the observed task under one of the four fo
 
 * CPU task that triggers GPU task in the asynchronous offloading mode.
 
-(For the details, see :ref:`offloading-mechanism`)
+(For the details, see :ref:`offloading-mechanism`.)
 
 * GPU task which is mapped to CPU
 
