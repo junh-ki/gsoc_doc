@@ -3,21 +3,15 @@
 ****************************
 
 |
-|
-|
-|
 
 **Approached Theories**
 #######################
 
 |
-|
-|
 
 **Basic RTA**
 *************
 
-|
 |
 
 .. _memory-accessing-cost:
@@ -45,6 +39,10 @@ Here, :math:`ls` denotes the label size and :math:`rl` and :math:`wl` define giv
 In the AMALTHEA model, some of the tasks that are mapped to CPU trigger the tasks that are mapped to GPU.
 In this case, the execution or response time can be different according to the mechanism.
 
+.. figure:: /_images/offloading.png 
+	:width: 400
+	:align: center
+
 * **Synchronous**
 
 The triggering task triggers its target GPU task when it reaches `InterProcessStimulus` and waits until it gets the response from the triggered GPU task. Then it finishes the remaining job.
@@ -52,6 +50,8 @@ The triggering task triggers its target GPU task when it reaches `InterProcessSt
 * **Asynchronous**
 
 The triggering task triggers its target GPU task when it reaches `InterProcessStimulus` and does not wait for the response from the triggered GPU task and finishes the remaining job. The asynchronous methodology described here can be modified according to the user's interpretation.
+
+This concept is used in two of the four execution cases introduced by a method, :ref:`method-task-execution-time`.
 
 |
 |
@@ -409,9 +409,27 @@ The botton layer, it takes care of task & runnable execution time. Being respons
 
 	public Time getExecutionTimeforCPUTask(final Task task, final ProcessingUnit pu, final TimeType executionCase, final CPURta cpurta)
 
-Things to explain here
+This method derives execution time of the observed task under one of the four following cases:
 
+* CPU task that triggers GPU task in the synchronous offloading mode.
+
+* CPU task that triggers GPU task in the asynchronous offloading mode.
+
+(For the details, see :ref:`offloading-mechanism`)
+
+* GPU task which is mapped to CPU
+
+
+
+* Task with only Ticks (pure computation)
+
+
+
+
+Things to explain here
 talk about memory accessing cost
+
+
 
 For the details, see :ref:`memory-accessing-cost`
 

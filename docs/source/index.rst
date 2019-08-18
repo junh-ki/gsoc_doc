@@ -50,34 +50,7 @@ Here is some text explaining some very complicated stuff.::
 	print 'hello'
 	>> hello
 
-If :math:`\sigma_{1}` equals :math:`\sigma_{2}` then etc, etc.
-
-:math:`\underline{x}=[  x_{1}, ...,  x_{n}]^{T}`
-
-:math:`R_i = C_i + \sum_{j \in hp(i)} \lceil \frac {R_i} {T_j} \rceil C_j`
-
-Image Test 1)
-
-.. image:: /_images/GSoC_image.png
-	:width: 600
-	:alt: GSoC Image
-	:align: left
-
-Do you like GSoC?
-
-
-Image Test 2)
-
-.. figure:: /_images/Polar_Express.jpg 
-	:width: 600
-
-Do you like Polar Express?
-
-
-ReadTheDocs Image Test 
-
 Open this :download:`example <_images/GSoC_image.png>` input file to see the following result:
-
 
 .. _making-a-table:
 
