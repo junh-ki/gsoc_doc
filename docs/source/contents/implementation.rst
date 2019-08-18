@@ -487,24 +487,33 @@ For the details, see :ref:`memory-accessing-cost`.
 
 	public Time[] getLocalCopyTimeArray(final Task task, final ProcessingUnit pu, final TimeType executionCase, final CPURta cpurta)
 
+As it is introduced in :ref:`method-response-time-implicit`, label copy-in & copy-out costs should be calculated and added up to the total execution time of the target task.
 
+The following equation from `End-To-End Latency Characterization of Implicit and LET Communication Models <https://www.ecrts.org/forum/viewtopic.php?f=32&t=91>`_ is used to calculate these costs.
 
-referenced paper
+:math:`C_{i}^0 = \sum_{l \in I_i} \xi_l (x)`
 
-`End-To-End Latency Characterization of Implicit and LET Communication Models <https://www.ecrts.org/forum/viewtopic.php?f=32&t=91>`_ by Jorge Martinez
+Where :math:`C_{i}^0` denotes the execution time of the runnable `\tau_0`, :math:`I_i` represents the inputs (read labels) of the considered task and :math:`\xi_l (x)` denotes the time it takes to access a shared label :math:`l` from memory :math:`x`.
 
+:math:`C_{i}^last = \sum_{l \in O_i} \xi_l (x)`
 
+Where :math:`C_{i}^last` denotes the execution time of the runnable `\tau_last`, :math:`O_i` represents the outputs (write labels) of the considered task and :math:`\xi_l (x)` denotes the time it takes to access a shared label :math:`l` from memory :math:`x`.
 
-referenced equation
+For the copy-in cost, only read labels should be taken into account.
 
-:math:`C_{i}^0, C_{i}^last = \sum_{l \in I_i} \xi_l (x)`
+The copy-in cost time is store on index 0 of the return array.
 
+This will later be considered as the execution time of the copy-in runnable which is added to the beginning of the task execution.
 
+For the copy-in cost, only write labels should be taken into account.
+
+The copy-in cost time is store on index 1 of the return array.
+
+This will later be considered as the execution time of the copy-out runnable which is added to the end of the task execution.
 
 |
 |
 |
-
 
 **Supplementary Classes (Out of scope)**
 ****************************************
