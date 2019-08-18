@@ -524,6 +524,8 @@ This will later be considered as the execution time of the copy-out runnable whi
 **1. SharedConsts**
 ===================
 
+
+
 |
 |
 
@@ -534,11 +536,15 @@ This will later be considered as the execution time of the copy-out runnable whi
 
 	public static List<ProcessingUnit> getPUs(final Amalthea amalthea)
 
+
+
 |
 
 .. code-block:: java
 
 	public static Time getStimInTime(final Task t)
+
+
 
 |
 |
@@ -550,6 +556,8 @@ This will later be considered as the execution time of the copy-out runnable whi
 
 	public Time contentionForTask(final Task task)
 
+
+
 |
 |
 |
@@ -558,6 +566,8 @@ This will later be considered as the execution time of the copy-out runnable whi
 **APP4RTA User Interface**
 ##########################
 
+
+
 |
 |
 |
@@ -565,6 +575,7 @@ This will later be considered as the execution time of the copy-out runnable whi
 
 **Git Repository**
 ##################
+
 
 
 `yahoo <http://yahoo.com>`_
