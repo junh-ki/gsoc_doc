@@ -44,7 +44,7 @@ In the AMALTHEA model, some of the tasks that are mapped to CPU trigger the task
 
 In this case, the execution or response time can be different according to the mechanism.
 
-.. figure:: /_images/offloading.png 
+.. image:: /_images/offloading.png 
 	:width: 400
 	:align: center
 
@@ -448,12 +448,12 @@ It should ignore offloading runnables and take the required labels(read from pre
 
 For example, here is a task named SFM which is originally a GPU Task.
 
-.. figure:: /_images/GPUTask_SFM.png 
+.. image:: /_images/GPUTask_SFM.png 
 	:align: center
 
 Since the task is newly mapped to CPU, the offloading runnables (`SFM_host_to_device`, `SFM_device_to_host`) which are in charge of offloading workload to GPU and copying back to CPU are not needed anymore.
 
-.. figure:: /_images/offloading.png 
+.. image:: /_images/offloading.png 
 	:align: center
 
 Instead, the labels from runnables before (`Pre-processing`) & after (`Post-processing`) the `InterProcessTrigger` are considered.
