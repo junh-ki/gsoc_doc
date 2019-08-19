@@ -127,8 +127,8 @@ Being responsible for calculating response time according to the communication p
 
 	public Time getCPUResponseTimeSum(final TimeType executionCase)
 
-This method derives the sum of all the tasks' response times according to the given mapping model (which described as an integer array).
-It is designed for Generic Algorithm mapping so that GA would filter out all mapping models with a relatively longer RT sum value and take the shortest one which is the optimized mapping model.
+This method derives the sum of all the tasks' response times according to the given mapping model (which is described as an integer array).
+The method is designed for Genetic Algorithm Mapping so that GA would filter out all mapping models with a relatively longer RT sum value and take the shortest one which represents the optimized mapping model ultimately.
 
 |
 
@@ -193,7 +193,7 @@ This method derives execution time of the observed task under one of the four fo
 
 * GPU task which is mapped to CPU
 
-Execution time of the given task which was originally designed for GPU but mapped to CPU by GA(Generic Algorithm) Mapping.
+Execution time of the given task which was originally designed for GPU but mapped to CPU by GA(Genetic Algorithm) Mapping.
 It should ignore offloading runnables and take the required labels(read from pre-processing, write from post-processing) into account.
 For example, here is a task named SFM which is originally a GPU Task.
 
