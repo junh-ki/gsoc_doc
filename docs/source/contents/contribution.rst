@@ -1,7 +1,7 @@
 Contribution & Benefits for The Community
 =========================================
 
-In this project, `a standardized response time analysis methodology <https://academic.oup.com/comjnl/article/29/5/390/486162>`_ (Mathai Joseph and Paritosh Pandya, 1986) is used. Not only this, but also a class, `CPURta` which is designed for Generic Algorithm Mapping is provided. 
+In this project, `a standardized response time analysis methodology <https://academic.oup.com/comjnl/article/29/5/390/486162>`_ (Mathai Joseph and Paritosh Pandya, 1986) is used. Not only this, but a class, `CPURta` which can be used with various implementations (e.g., Genetic Algorithm), is also provided.
 
 Since a heterogeneous platfrom requires a different analysis methodology for a processing unit which is not a CPU, a class that has a built-in response-time calculation algorithm which can be used with GA Mapping would be very helpful and make the entire developing circle quicker. 
 
