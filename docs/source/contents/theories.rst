@@ -73,7 +73,7 @@ To find relevant methods, see :ref:`method-response-time-sum`.
 **End to End Latency**
 **********************
 
-The approach & equations used here are referenced from a yet-unpublished paper, "Model-based Task Chain Latency and Blocking Analysis for Automotive Software" by the same author who published `CPU-GPU Response Time and Mapping Analysis for High-Performance Automotive Systems <https://www.ecrts.org/forum/viewtopic.php?f=43&t=134&sid=777ff03160a9434451d721748c8a8aea#p264>`_.
+The approach & equations used here are referenced from a yet-unpublished paper, "Model-based Task Chain Latency and Blocking Analysis for Automotive Software" by the same authors who published `CPU-GPU Response Time and Mapping Analysis for High-Performance Automotive Systems <https://www.ecrts.org/forum/viewtopic.php?f=43&t=134&sid=777ff03160a9434451d721748c8a8aea#p264>`_.
 
 |
 
