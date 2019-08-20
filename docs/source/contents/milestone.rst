@@ -63,4 +63,4 @@ This is intended to provide the user further information than just data propagat
 In that way, determinism metric of real-time systems can be improved.
 
 Not only this, the user also get the better visual information through the user interface class.
-This would enable users to map the Amalthea model and analyze response time & E2E latency information in a visual way.
+This enables users to map the target Amalthea model and analyze response time & E2E latency metrics in a visual way.
