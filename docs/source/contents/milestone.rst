@@ -16,14 +16,14 @@ Mid		Task Response Time
 Low		Task & Runnable Execution Time
 =====   ==============================
 
-2. Developing task & runnable level execution time methods with taking memory access cost & offloading mechanism into account
+2. Developing task and runnable level execution time methods with taking memory access cost and offloading mechanisms into account
 
 3. Testing
 
 4. Documenting
 
-The main focus of phase 1 is to do the framework and map each and every functionality to the classes. 
-In this way, the entire system becomes organized that makes it easier for error or bug tracking.
+The main focus of phase 1 is to implement the basis framework and map each and every functionality to the classes. 
+In this way, the entire system becomes organized which eases refactoring and debugging.
 
 |
 
@@ -32,35 +32,32 @@ In this way, the entire system becomes organized that makes it easier for error 
 
 1. Developing interfaces between classes
 
-2. Implementing response time analysis algorithm according to the communication paradigm (Direct Communcation or Implicit Communication)
+2. Implementation of response time analysis algorithms according to different communication paradigms, i.e., direct and implicit communication)
 
-3. Structuring & developing basic user interface class
+3. Structuring and developing basic user interface class
 
 4. Testing
 
 5. Documenting
 
-The main focus of phase 2 is to make a stable response time method which can be applicable for several cases that does not return error in every configuration setting.
-If the method can handle every exception and error, it would make GA mapping process much more stable and smooth.
+The main focus of phase 2 is to provide a stable response time method which can be used for several models under various configuration settings.
 
 |
 
 **Phase 3 (July 23 - August 19)**
 ---------------------------------
 
-Refine Previous Phase & E2E Latency Foundation (IC, LET) / Documenting
+Refine Previous Phase and E2E Latency Foundation (IC, LET) / Documenting
 
-1. Implementing E2E latency analysis methodologies according to the concepts such as age, reaction, etc., with communication paradigms (Direct, Implicit, Logical Execution Time)
+1. Implementation of E2E latency analysis methodologies according to the concepts such as age, reaction, and propagation under different communication paradigms such as direct, implicit, and LET = Logical Execution Time.
 
-2. Extend & finalize the UI part
+2. Extend and finalize the UI part
 
 3. Testing
 
 4. Final documenting (Through Sphinx & readthedocs)
 
-The main focus of phase 3 is to implement newly defined concepts of End-to-End latency mainly with the Implicit & LET communication paradigms.
-This is intended to provide the user further information than just data propagation; task chain age & reaction in the observed event chain.
-In that way, determinism metric of real-time systems can be improved.
+The main focus of phase 3 is to implement newly defined concepts of end-to-end latency methodologies in line with the implicit and LET communication paradigms.
+As a consequence, users gain much more task chain metrics in addition to data propagation only.
 
-Not only this, the user also get the better visual information through the user interface class.
-This enables users to map the target Amalthea model and analyze response time & E2E latency metrics in a visual way.
+Moreover, by using the provided GUI, user can investigate mapping scenarios and analyze response times & E2E latency metrics without diving into java implementations.
