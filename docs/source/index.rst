@@ -11,7 +11,7 @@ Motivation
 
 Through one of the subjects in my Master's course, I carried on a project analyzing metrics of Software Models and visualizing it in APP4MC. 
 
-It was quite challenging as I was not very familiar with the Amalthea model its APP4MC platform at first. But soon I was able to understand the concepts and started enjoying it. 
+It was quite challenging as I was not very familiar with the Amalthea model and its APP4MC platform at first. But soon I was able to understand the concepts and started enjoying it. 
 The project resulted in completing an application delivering performance and reliability metrics of a given Software Model. This is basically my motivation for participating in this Eclipse GSoC project, "CPU-GPU Response Time and Mapping Analysis".
 
 Since the topic's ultimate goal is to achieve systems' real-time determinism for modern HPC (High Performance Computing) applications, analyzing response times is essential and my basic knowledge in regard to, e.g., timing constraints or end-to-end event chain latency values according to the different communication paradigms (direct, implicit, LET: Logical Execution Time) which I obtained through my Master's study were very helpful for me in order apply for and luckily realize this project.

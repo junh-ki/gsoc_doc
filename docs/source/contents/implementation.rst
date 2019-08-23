@@ -243,7 +243,7 @@ Where :math:`C_{i}^0` denotes the execution time of the runnable `\tau_0`, :math
 Where :math:`C_{i}^last` denotes the execution time of the runnable `\tau_last`, :math:`O_i` represents the outputs (write labels) of the considered task and :math:`\xi_l (x)` denotes the time it takes to access a shared label :math:`l` from memory :math:`x`.
 
 For the copy-in cost, only read labels should be taken into account.
-The copy-in cost time is store on index 0 of the return array.
+The copy-in cost time is stored on index 0 of the return array.
 This will later be considered as the execution time of the copy-in runnable which is added to the beginning of the task execution.
 
 For the copy-in cost, only write labels should be taken into account.
