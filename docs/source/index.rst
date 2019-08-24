@@ -55,14 +55,3 @@ Here is some text explaining some very complicated stuff.::
 
 	print 'hello'
 	>> hello
-
-Open this :download:`example <_images/GSoC_image.png>` input file to see the following result:
-
-Making links
-============
-
-It is easy to make a link to `yahoo <http://yahoo.com>`_
-
-For example, see the module :mod:`matplotlib.backend_bases` documentation, or the
-class :class:`~matplotlib.backend_bases.LocationEvent`, or the method
-:meth:`~matplotlib.backend_bases.FigureCanvasBase.mpl_connect`.
