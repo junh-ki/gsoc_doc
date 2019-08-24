@@ -42,7 +42,7 @@ This method derives the given event-chain's worst-case end-to-end latency value 
 
 `Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n196>`_
 
-For the details, see :ref:`task-chain-reaction-implicit` and :ref:`features-e2elatency`(UI reference).
+For the details, see :ref:`task-chain-reaction-implicit` and :ref:`features-e2elatency` (UI reference).
 
 |
 
@@ -67,7 +67,7 @@ This method derives the given event-chain's worst-case end-to-end latency based 
 
 `Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n274>`_
 
-For the details, see :ref:`task-chain-reaction-let` and :ref:`features-e2elatency`(UI reference).
+For the details, see :ref:`task-chain-reaction-let` and :ref:`features-e2elatency` (UI reference).
 
 |
 
@@ -85,7 +85,7 @@ By changing `TimeType executionCase` parameter, the latency in the best-case or 
 
 `Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n304>`_
 
-For the details, see :ref:`task-chain-age` and :ref:`features-e2elatency`(UI reference).
+For the details, see :ref:`task-chain-age` and :ref:`features-e2elatency` (UI reference).
 
 |
 
@@ -104,7 +104,7 @@ By changing `TimeType executionCase` parameter, the latency in the best-case or 
 
 `Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n366>`_
 
-For the details, see :ref:`early-reaction` and :ref:`features-e2elatency`(UI reference).
+For the details, see :ref:`early-reaction` and :ref:`features-e2elatency` (UI reference).
 
 |
 
@@ -123,7 +123,7 @@ By changing `TimeType executionCase` parameter, the latency in the best-case or 
 
 `Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n467>`_
 
-For the details, see :ref:`data-age` and :ref:`features-e2elatency`(UI reference).
+For the details, see :ref:`data-age` and :ref:`features-e2elatency` (UI reference).
 
 |
 
