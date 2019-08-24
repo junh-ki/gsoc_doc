@@ -14,6 +14,8 @@ The above UML class diagram describes the project's implementation in a hierarch
 
 |
 
+.. _E2ELatency-reference:
+
 **E2ELatency**
 ==============
 The top layer takes care of the end-to-end latency calculation of the observed task-chain based on the analyzed response time from the CPURta class.
@@ -126,6 +128,8 @@ By changing `TimeType executionCase` parameter, the latency in the best-case or 
 For the details, see :ref:`data-age` and :ref:`features-e2elatency` (UI reference).
 
 |
+
+.. _CPURta-reference.
 
 **CPURta**
 ==========

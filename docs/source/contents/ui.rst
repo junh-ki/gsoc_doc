@@ -50,7 +50,7 @@ The first thing to do is deciding a target Amalthea model.
 
 .. _features-rta:
 
-**Features (Response Time & Mapping Analysis)**
+**UI Features (RTA)**
 -----------------------------------------------
 
 .. image:: /_images/app4rta/2.png
@@ -73,6 +73,8 @@ Basically, we can map the tasks with these boxes by entering the number of each 
 
 **8.** By clicking the `Calculate` button, all calculation results will be printed out on the text-fields (`Schedulability`, `Cumulated Memory-Access Cost`, `Cumulated Contention`, `Computation`).
 
+For the implementation details, see :ref:`CPURta-reference`.
+
 .. _select-event-chain:
 
 **Select an Event-Chain**
@@ -88,7 +90,7 @@ The event-chain combo-box becomes visible once the user clicks `Enter IA` to ass
 
 .. _features-e2elatency:
 
-**Features (End-to-End Event-Chain Latency)**
+**UI Features (E2ELatency)**
 ---------------------------------------------
 
 .. image:: /_images/app4rta/4.png
@@ -100,6 +102,8 @@ The event-chain combo-box becomes visible once the user clicks `Enter IA` to ass
 **11.** Finally, click the `Calculate` button.
 
 Then all calculation results regarding reaction, age of data, task-chain in the worst and best cases will be printed out to the corresponding text fields or lists.
+
+For the implementation details, see :ref:`E2ELatency-reference`.
 
 |
 
