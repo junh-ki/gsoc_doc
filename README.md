@@ -2,13 +2,17 @@
 
 2019 Google Summer of Code (CPU-GPU Response Time and Mapping Analysis)
 
-## [Table of Contents]
-### 1. Milestone with the goal of each phase
+## [Contents]
+### 1. Motivation
 ### 2. Intention
-### 3. Contribution & benefits for the community
-### 4. Contents
-### 5. Diagram Example
-### 6. Instruction
+### 3. Contribution & Benefits for the community
+### 4. Milestone with the Goal of each phase
+## Phase 1 (May 27 - June 24)
+## Phase 2 (June 25 - July 22)
+## Phase 3 (July 23 - August 25)
+### 5. Approached Theories
+### 6. Diagram Example
+### 7. Instruction
 
 # 1. Milestone with the goal of each phase
 - Response Time Analysis_CPU Part / Documenting for Phase 1 (Phase 1)
