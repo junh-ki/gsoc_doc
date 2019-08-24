@@ -22,6 +22,7 @@ Before executing the code, please install the Java GUI softwares.
 Run `APP4RTA.java` in `org.eclipse.app4mc.gsoc_rta.ui` package, then this window will show up.
 Based on the horizontal line on the middle, the upper part is for response Time & mapping analysis, and the lower part is for end-to-end event-chain latency analysis.
 The first thing to do is deciding a target Amalthea model.
+
 * **1.** The window browser for searching Amalthea models shows up when the `Search Amalthea` button clicked.
 
 .. image:: /_images/app4rta/1.png
@@ -33,18 +34,18 @@ The first thing to do is deciding a target Amalthea model.
 * **3.** Click the `Open` button.
 
 .. image:: /_images/app4rta/2.png
-	:width: 800
+	:width: 600
 	:alt: 2
 
-Then the empty space will be filled with the the tasks and processing units of the selected model. 
-On the left-hand side, tasks' names with empty boxes can be found. 
-On the right-hand side, seven pairs of lists are seen (It means the selected model has seven processing units). 
+Then the empty space will be filled with the the tasks and processing units of the selected model.
+On the left-hand side, tasks' names with empty boxes can be found.
+On the right-hand side, seven pairs of lists are seen (It means the selected model has seven processing units).
 The list on the left side of each pair is for listing names of the tasks which are mapped to the corresponding processing unit while one on the right side is for listing response times of the corresponding tasks. 
 Basically, we can map the tasks with these boxes by entering the number of each processing unit which is stated on the top of the lists on the left-side.
 
-* **4.** We can either manually type numbers for every box or simply click the `Default IA` button which would automatically fill up every box with the pre-defined integer array values.
+* **4.** The user can either manually type numbers for every box or simply click the `Default IA` button which would automatically fill up every box with the pre-defined integer array values.
 
-* **5.** Once every `PU Num` box is filled, click `Enter IA` button to assign tasks to processing units according to each integer value. Once this is done, the mapped tasks would appear on the left-side lists
+* **5.** Once every `PU Num` box is filled, click `Enter IA` button to assign tasks to processing units according to each integer value. Once this is done, the mapped tasks would appear on the left-side lists.
 
 * **6.** Choose the offloading mode between `Synchronous` case and `Asynchronous` case.
 
@@ -61,7 +62,7 @@ The event-chain combo-box becomes visible once the user clicks `Enter IA` to ass
 * **9.** To analyze end-to-end event-chain latency, an event-chain in the combo-box should be selected first.
 
 .. image:: /_images/app4rta/4.png
-	:width: 800
+	:width: 600
 	:alt: 4
 
 * **10.** Select the communication paradigm between direct Communication and implicit communication.
@@ -69,3 +70,6 @@ The event-chain combo-box becomes visible once the user clicks `Enter IA` to ass
 * **11.** Finally, click the `Calculate` button.
 
 Then all calculation results regarding reaction, age of data, task-chain in the worst and best cases will be printed out to the corresponding text fields or lists.
+
+
+**Open this :download:`example <_images/GSoC_image.png>` input file to see the following result:**
