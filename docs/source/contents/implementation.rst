@@ -28,15 +28,19 @@ It includes calculating E2E latency values according to the concepts stated in t
 
 .. code-block:: java
 
-	public Time getImplicitReactionBC(final EventChain ec, final CPURta cpurta)
+	public Time getTCReactionBC(final EventChain ec, final ComParadigm paradigm, final CPURta cpurta)
 
-This method derives the given event-chain's best-case end-to-end latency based on the reaction concept for the implicit communication.
+This method derives the given event-chain's best-case end-to-end latency based on the reaction concept for the direct and implicit communication paradigms.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n147>`_
 
 .. code-block:: java
 
-	public Time getImplicitReactionWC(final EventChain ec, final CPURta cpurta)
+	public Time getTCReactionWC(final EventChain ec, final ComParadigm paradigm, final CPURta cpurta)
 
-This method derives the given event-chain's worst-case end-to-end latency value based on the reaction concept for implicit communication.
+This method derives the given event-chain's worst-case end-to-end latency value based on the reaction concept for the direct and implicit communication paradigms.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n196>`_
 
 For the details, see :ref:`task-chain-reaction-implicit`.
 
@@ -53,11 +57,15 @@ For the details, see :ref:`task-chain-reaction-implicit`.
 
 This method derives the given event-chain's best-case end-to-end latency value based on the reaction concept for LET communication.
 
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n246>`_
+
 .. code-block:: java
 
 	public Time getLetReactionWC(final EventChain ec, final CPURta cpurta)
 
 This method derives the given event-chain's worst-case end-to-end latency based on the reaction concept for LET communication.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n274>`_
 
 |
 
@@ -68,10 +76,12 @@ This method derives the given event-chain's worst-case end-to-end latency based 
 
 .. code-block:: java
 
-	public Time getTaskChainAge(final EventChain ec, final TimeType executionCase, final CPURta cpurta)
+	public Time getTaskChainAge(final EventChain ec, final TimeType executionCase, final ComParadigm paradigm, final CPURta cpurta)
 
 This method derives the given event-chain latency based on the age concept.
 By changing `TimeType executionCase` parameter, the latency in the best-case or the worst-case can be derived.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n304>`_
 
 For the details, see :ref:`task-chain-age`.
 
@@ -84,11 +94,13 @@ For the details, see :ref:`task-chain-age`.
 
 .. code-block:: java
 
-	public Time getEarlyReaction(final EventChain ec, final TimeType executionCase, final CPURta cpurta)
+	public Time getEarlyReaction(final EventChain ec, final TimeType executionCase, final ComParadigm paradigm, final CPURta cpurta)
 
 This is a method to be pre-executed for getting the reaction-update latency values. 
 The best-case and worst-case early-reaction latency values should be derived first and then the reaction update latency can be calculated.
 By changing `TimeType executionCase` parameter, the latency in the best-case or the worst-case can be derived.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n366>`_
 
 For the details, see :ref:`early-reaction`.
 
@@ -101,11 +113,13 @@ For the details, see :ref:`early-reaction`.
 
 .. code-block:: java
 
-	public Time getDataAge(final Label label, final EventChain ec, final TimeType executionCase, final CPURta cpurta)
+	public Time getDataAge(final Label label, final EventChain ec, final TimeType executionCase, final ComParadigm paradigm, final CPURta cpurta)
 
 This method derives the given label's age latency.
 If the passed event-chain does not contain the observed label, `null` is returned.
 By changing `TimeType executionCase` parameter, the latency in the best-case or the worst-case can be derived.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/E2ELatency.java?h=gsoc19RTAFinal#n467>`_
 
 For the details, see :ref:`data-age`.
 
@@ -131,6 +145,8 @@ It is responsible for calculating response times according to the communication 
 This method derives the sum of all the tasks' response times according to the given mapping model (which is described as an integer array).
 The method can be used as a metric to assess a mapping model.
 
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/CPURta.java?h=gsoc19RTAFinal#n411>`_
+
 |
 
 .. _method-response-time-direct:
@@ -148,6 +164,8 @@ Here, we are concerning response time for RMS (Rate Monotonic Scheduling).
 It means that a task with the shorter period obtains a higher priority.
 Before the taskList is passed to the method, it should be sorted in the order of shortest to longest and this job is done by `taskSorting(List<Task> taskList)` which is a private method.
 
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/CPURta.java?h=gsoc19RTAFinal#n502>`_
+
 |
 
 .. _method-response-time-implicit:
@@ -164,6 +182,8 @@ In the implicit communication paradigm which is introduced by AUTOSAR. A task co
 Due to these copy-in & copy-out costs, extra time must be added to the task's execution time which is done by `getLocalCopyTimeArray` (for the details, see :ref:`method-local-copy-implicit`) which is a method from the `RTARuntimeUtil` class.
 As a result, the task's execution time gets longer while its period should stays the same.
 Once the local-copy cost is taken into account, the remaining process is the same as :ref:`method-response-time-direct`
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/CPURta.java?h=gsoc19RTAFinal#n618>`_
 
 For the details, see :ref:`response-time`.
 
@@ -214,8 +234,14 @@ This job is done by the private method `getExecutionTimeForGPUTaskOnCPU()`.
 * Task with only Ticks (pure computation)
 
 When a CPU task without any triggering behavior is passed, only the execution time that corresponds to the task's ticks is considered.
+
+`Code Reference for getExecutionTimeforCPUTask <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/RTARuntimeUtil.java?h=gsoc19RTAFinal#n55>`_
+
 Except for the very last case (Task with only Ticks), the task execution time calculation always includes memory accessing costs.
 Calculating memory accessing costs is taken care of by methods such as `getExecutionTimeForRTARunnable`, `getRunnableMemoryAccessTime` which are defined as private.
+
+`Code Reference for getExecutionTimeForRTARunnable <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/RTARuntimeUtil.java?h=gsoc19RTAFinal#n335>`_
+`Code Reference for getRunnableMemoryAccessTime <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/RTARuntimeUtil.java?h=gsoc19RTAFinal#n414>`_
 
 For the details, see :ref:`memory-accessing-cost`.
 
@@ -250,6 +276,8 @@ For the copy-in cost, only write labels should be taken into account.
 The copy-in cost time is stored on index 1 of the return array.
 This will later be considered as the execution time of the copy-out runnable which is added to the end of the task execution.
 
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/RTARuntimeUtil.java?h=gsoc19RTAFinal#n474>`_
+
 |
 
 **Supplementary Classes (Out of scope)**
@@ -276,6 +304,8 @@ Also, all file paths for every Amalthea model can be saved as `String` type cons
 This method derives a list of processing units of the target `Amalthea` model. 
 It places CPU type processing units in the front and that of GPU type in the tail (end) of the list.
 
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/CommonUtils.java#n75>`_
+
 |
 
 .. code-block:: java
@@ -285,6 +315,8 @@ It places CPU type processing units in the front and that of GPU type in the tai
 This method returns the periodic recurrence time of the target task.
 If the passed task is not a periodic task (e.g., GPU task), the recurrence time of a task which is periodic and triggers the target task is returned.
 Otherwise time 0 is returned.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/CommonUtils.java#n452>`_
 
 |
 
@@ -296,5 +328,7 @@ Otherwise time 0 is returned.
 	public Time contentionForTask(final Task task)
 
 This method derives a memory contention time which represents the delay when more than one CPU core and/or the GPU is accessing memory at the same time.
+
+`Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/Contention.java#n152>`_
 
 For the details, see `Memory Contention Model <https://www.ecrts.org/forum/viewtopic.php?f=43&t=125&sid=0d17da7eba5419d1dc41d6d81dace278>`_.
