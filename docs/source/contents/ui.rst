@@ -1,6 +1,11 @@
 **User Interface (APP4RTA)**
 ############################
 
+.. _set-up:
+
+**Set Up**
+----------
+
 For analyzing response time & end-to-end event-chain latency
 
 .. image:: /_images/app4rta/main.png
@@ -15,15 +20,25 @@ Before executing the code, please install the Java GUI softwares.
 3. `General Purpose Tools` > all click from `Swing Designer` to `WindowBuilder XML Core (requires Eclipse WTP/WST)`
 4. `Next` > `Next` > `accept` > `Finish`
 
+.. _search-amalthea:
+
+**Search Amalthea**
+-------------------
+
 .. image:: /_images/app4rta/0.png
 	:width: 800
 	:alt: 0
 
 Run `APP4RTA.java` in `org.eclipse.app4mc.gsoc_rta.ui` package, then this window will show up.
-Based on the horizontal line on the middle, the upper part is for response Time & mapping analysis, and the lower part is for end-to-end event-chain latency analysis.
+Based on the horizontal line on the middle, the upper part is for response time & mapping analysis, and the lower part is for end-to-end event-chain latency analysis.
 The first thing to do is deciding a target Amalthea model.
 
 **1.** The window browser for searching Amalthea models shows up when the `Search Amalthea` button clicked.
+
+.. _direct-select-amalthea:
+
+**Direct & Select Amalthea**
+----------------------------
 
 .. image:: /_images/app4rta/1.png
 	:width: 400
@@ -32,6 +47,11 @@ The first thing to do is deciding a target Amalthea model.
 **2.** When the search browser shows up, direct to the path where the target Amalthea model file is located and select the model file.
 
 **3.** Click the `Open` button.
+
+.. _features-rta:
+
+**Features (Response Time & Mapping Analysis)**
+-----------------------------------------------
 
 .. image:: /_images/app4rta/2.png
 	:width: 600
@@ -53,6 +73,11 @@ Basically, we can map the tasks with these boxes by entering the number of each 
 
 **8.** By clicking the `Calculate` button, all calculation results will be printed out on the text-fields (`Schedulability`, `Cumulated Memory-Access Cost`, `Cumulated Contention`, `Computation`).
 
+.. _select-event-chain:
+
+**Select an Event-Chain**
+-------------------------
+
 .. image:: /_images/app4rta/3.png
 	:width: 800
 	:alt: 3
@@ -60,6 +85,11 @@ Basically, we can map the tasks with these boxes by entering the number of each 
 The event-chain combo-box becomes visible once the user clicks `Enter IA` to assign tasks to processing units according to each integer value in the boxes.
 
 **9.** To analyze end-to-end event-chain latency, an event-chain in the combo-box should be selected first.
+
+.. _features-e2elatency:
+
+**Features (End-to-End Event-Chain Latency)**
+---------------------------------------------
 
 .. image:: /_images/app4rta/4.png
 	:width: 600
@@ -71,5 +101,6 @@ The event-chain combo-box becomes visible once the user clicks `Enter IA` to ass
 
 Then all calculation results regarding reaction, age of data, task-chain in the worst and best cases will be printed out to the corresponding text fields or lists.
 
+|
 
 **Download** :download:`PDF <../contents/inst/app4rta_instruction.pdf>` file to see offline.
