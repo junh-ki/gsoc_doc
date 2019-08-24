@@ -7,9 +7,9 @@
 *************
 
 * Table of Notation for **Basic RTA**
-=================  ===========
+=================  =============================
 Description 	   Symbol
-=================  ===========
+=================  =============================
 Task 			   :math:`i`
 WC Response time   :math:`R_i^+`
 WC Execution time  :math:`C_i^+`
@@ -22,7 +22,7 @@ Read labels 	   :math:`\mathcal{R}_i`
 Written Labels 	   :math:`\mathcal{W}_i`
 Label 			   :math:`\mathcal{L}`
 Label Size 		   :math:`\mathcal{S}`
-=================  ===========
+=================  =============================
 
 |
 
