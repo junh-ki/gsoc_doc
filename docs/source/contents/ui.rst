@@ -30,7 +30,7 @@ The first thing to do is deciding a target Amalthea model.
 
 * **2.** When the search browser shows up, direct to the path where the target Amalthea model file is located and select the model file.
 
-* **3.** Click the 'Open' button.
+* **3.** Click the `Open` button.
 
 .. image:: /_images/app4rta/2.png
 	:width: 800
