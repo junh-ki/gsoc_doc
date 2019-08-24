@@ -72,4 +72,4 @@ The event-chain combo-box becomes visible once the user clicks `Enter IA` to ass
 Then all calculation results regarding reaction, age of data, task-chain in the worst and best cases will be printed out to the corresponding text fields or lists.
 
 
-**Download** :download:`example <contents/inst/app4rta_instruction.pdf>` **PDF instruction file to see offline.**
+**Download** :download:`PDF <../contents/inst/app4rta_instruction.pdf>` file to see offline.
