@@ -9,6 +9,7 @@ The future work concerns the followings:
 
 The current implementation covers `Early Reaction` but does not cover `Reaction Update`.
 To calculate `Reaction Update`, the number of sampled task-chain entity instances should be taken into account first, and then `Early Reaction` can finally be utilized to get `Reaction Update`.
+For the details, see :ref:`reaction-update`.
 
 **2. Blocking**
 ---------------
