@@ -187,7 +187,7 @@ Once the local-copy cost is taken into account, the remaining process is the sam
 
 `Code Reference <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta/src/org/eclipse/app4mc/gsoc_rta/CPURta.java?h=gsoc19RTAFinal#n618>`_
 
-For the details, see :ref:`response-time` and :ref:`features-rta`(UI reference).
+For the details, see :ref:`response-time` and :ref:`features-rta` (UI reference).
 
 |
 
