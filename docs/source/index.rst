@@ -36,8 +36,8 @@ Contents
    Approached Theories <contents/theories>
    Implementation <contents/implementation>
    User Interface (APP4RTA) <contents/ui>
-   Repositories <contents/repo>
    Future Work <contents/future>
+   Repositories <contents/repo>
    Reference <contents/reference>
    Contact <contents/contact>
 
