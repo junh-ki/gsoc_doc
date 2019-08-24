@@ -40,18 +40,3 @@ Contents
    Repositories <contents/repo>
    Reference <contents/reference>
    Contact <contents/contact>
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-Random Stuff
-============
-
-Here is some text explaining some very complicated stuff.::
-
-	print 'hello'
-	>> hello
