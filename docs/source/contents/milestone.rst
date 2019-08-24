@@ -44,7 +44,7 @@ The main focus of phase 2 is to provide a stable response time method which can 
 
 |
 
-**Phase 3 (July 23 - August 19)**
+**Phase 3 (July 23 - August 25)**
 ---------------------------------
 
 Refine Previous Phase and E2E Latency Foundation (IC, LET) / Documenting
