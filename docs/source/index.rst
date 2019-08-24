@@ -30,7 +30,6 @@ Contents
 .. toctree::
    :maxdepth: 3
    
-   Motivation <index>
    Intention <contents/intention>   
    Contribution & Benefits for the community <contents/contribution>
    Milestone with the Goal of each phase <contents/milestone>
