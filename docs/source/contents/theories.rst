@@ -6,12 +6,30 @@
 **Basic RTA**
 *************
 
+* Table of Notation for **Basic RTA**
+=================  =============================
+Description 	   Symbol
+=================  =============================
+Task 			   :math:`i`
+WC Response time   :math:`R_i^+`
+WC Execution time  :math:`C_i^+`
+Period 			   :math:`T_i`
+Frequency in Hz	   :math:`f_m`
+Latency 		   :math:`L`
+Read Latency 	   :math:`L_{\uparrow m\to l}`
+Write Latency 	   :math:`L_{\downarrow m\to l}`
+Read labels 	   :math:`\mathcal{R}_i`
+Written Labels 	   :math:`\mathcal{W}_i`
+Label 			   :math:`\mathcal{L}`
+Label Size 		   :math:`\mathcal{S}`
+=================  =============================
+
 |
 
 .. _memory-accessing-cost:
 
-**Memory Accessing Cost**
-=========================
+**Memory Access Cost**
+======================
 
 Memory access time is different depending on the target hardware.
 In this project, the memory access time is defined based on NVIDIA-TX2 platform.
@@ -71,10 +89,27 @@ To find relevant methods, see :ref:`method-response-time-sum`.
 
 .. _e2e-latency:
 
-**End to End Latency**
+**End-to-End Latency**
 **********************
 
 The approach and its equations used here are referenced from a yet-unpublished paper, "Model-based Task Chain Latency and Blocking Analysis for Automotive Software" by the same authors who published `CPU-GPU Response Time and Mapping Analysis for High-Performance Automotive Systems <https://www.ecrts.org/forum/viewtopic.php?f=43&t=134&sid=777ff03160a9434451d721748c8a8aea#p264>`_.
+
+* Table of Notation for **End-to-End Latency**
+======================  ================
+Symbol 					Description
+======================  ================
+Task 					:math:`\tau`
+Response time 			:math:`R`
+Execution time  		:math:`C`
+Period 					:math:`T`
+Task chain 				:math:`\gamma`
+Latency 				:math:`\delta`
+implicit communication  :math:`\iota`
+LET communication 		:math:`\lambda`
+Age latency 			:math:`\alpha`
+Reaction latency 		:math:`\rho`
+Reaction update 		:math:`\upsilon`
+======================  ================
 
 |
 
