@@ -72,4 +72,4 @@ The event-chain combo-box becomes visible once the user clicks `Enter IA` to ass
 Then all calculation results regarding reaction, age of data, task-chain in the worst and best cases will be printed out to the corresponding text fields or lists.
 
 
-**Open this :download:`example <_images/GSoC_image.png>` input file to see the following result:**
+**Download `example <_images/GSoC_image.png>` PDF instruction file to see offline**
