@@ -23,7 +23,7 @@ Therefore, the preempting task should be blocked until the currently executing r
 
 The type of real-time scheduling algorithm used in this project is RMS (Rate Monotonic Scheduling).
 Under RMS, a task with the shorter period obtains a higher priority.
-To analyze different response times and mapping scenarios, extending the current scheduling algorithm further to EDF (Earliest Deadline First).
+To analyze different response times and mapping scenarios, extending the current scheduling algorithm further to EDF (Earliest Deadline First) can be done.
 Under EDF, tasks are sorted by using their deadlines.
 Therefore, a task which has the earliest deadline runs first.
 
