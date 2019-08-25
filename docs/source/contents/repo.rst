@@ -1,12 +1,12 @@
 **Repositories**
 ################
 
-Eclipse Contribution Tagged Repo
-================================
+**Eclipse Contribution Tagged Repo**
+====================================
 
 Click `Eclipse Contribution Tagged Repository <https://git.eclipse.org/c/app4mc/org.eclipse.app4mc.tools.git/tree/eclipse-tools/responseTime-analyzer/plugins/org.eclipse.app4mc.gsoc_rta?h=gsoc19RTAFinal>`_
 
-ReadTheDocs Repo
-================
+**ReadTheDocs Repo**
+====================
 
 Click `ReadTheDocs Documentation Repository <https://github.com/mrki102/gsoc_doc>`_
