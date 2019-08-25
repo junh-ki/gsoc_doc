@@ -39,5 +39,7 @@
 ## 4. Read & Write latency setting feature
 ## 5. Data Age metrics should be organized
 # 9. Repositories
+## Eclipse Contribution Tagged Repo
+## ReadTheDocs Repo
 # 10. Reference
 # 11. Contact
