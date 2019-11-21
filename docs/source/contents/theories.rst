@@ -78,7 +78,7 @@ This concept is used in two of the four execution cases introduced by a method, 
 The response time analysis approach implemented here is not only designed for Multi-core Systems but also for Heterogeneous Systems.
 Basically, the following classical response time analysis equation is used.
 
-:math:`R_i = C_i + \sum_{j \in hp(i)} \left\lceil \frac {R_{i-1}} {T_j} \right\rceil C_j`
+:math:`R_i^+ = C_i^+ + \sum_{j \in hp(i)} \left\lceil \frac {R_{i-1}^+} {T_j} \right\rceil C_j^+`
 
 The equation is based on RMS (Rate Monotonic Scheduling) which means that static priorities are assigned to tasks according to their period. A task with the shorter period results in a higher task priority.
 Here, :math:`R_i` denotes the response time of task :math:`\tau_i` and :math:`hp(i)` is the set of tasks indexes (j) which have a priority higher than task i.
@@ -136,7 +136,7 @@ Here, :math:`\gamma` refers to a task chain, :math:`\rho` corresponds the reacti
 
 * **Worst-case Task-Chain Reaction (Implicit Communication Paradigm)**
 
-:math:`\delta_{\gamma,\rho,\iota}^+ = \sum_{j=0}^{j=|\gamma|-2} \left(2\cdot T_{j}\right) +R_{j = |\gamma|-1}^+ \text{ with } \tau_j \in \gamma`
+:math:`\delta_{\gamma,\rho,\iota}^+ = \sum_{j=0}^{j=|\gamma|-2} \left(T_{j} + R_{j}^+\right) +R_{j = |\gamma|-1}^+ \text{ with } \tau_j \in \gamma`
 
 To find relevant methods, see :ref:`method-task-chain-reaction-implicit`.
 
@@ -166,53 +166,32 @@ To find relevant methods, see :ref:`method-task-chain-reaction-let`.
 **Task Chain Age**
 ==================
 
-The time a task chain result is initially available until the next task chain instance's initial results are available.
-A task chain age latency equals the chain's last (response) task age latency, i.e. :math:`\delta_{\gamma,\alpha} = \delta_{i,\alpha}` with :math:`\tau_i` being the last task of the task chain :math:`\gamma`, i.e. :math:`i=|\gamma|-1`.
-
-* **Best-case Task-Chain Age**
-
-:math:`\delta_{i, \alpha}^- = T_i - R_i^+ + R_i^-`
-
-* **Worst-case Task-Chain Age**
-
-:math:`\delta_{i,\alpha}^+ = 2 \cdot T_i - R_i^- - (T_i - R_i^+) = T_i - R_i^- + R_i^+`
-
-To find relevant methods, see :ref:`method-task-chain-age`.
-
-|
-
-.. _reaction-update:
-
-**Reaction Update**
-===================
-
-Due to the fact that tasks can have varying periods across the task chain, propagation between task chain entities can be over or under sampled such that a task X's result (a) serves as an input for several subsequent task chain entity instances or (b) does not serve as an input at all due to the fact that the subsequent task can already work with newer results produced by X's next instance.
-
-|
+"The time a task chain result is initially available until the next task chain instance's initial results are available. In other words, the task chain age latency is the maximal time a task chain's results based on the same input persist in memory."
 
 .. _early-reaction:
 
 **Early Reaction**
 ------------------
 
-:math:`\delta_{\gamma, \rho 0, \iota}^+ = R_{\gamma0} + \sum_{j=0}^{j = |\gamma|-2} T_{j+1} + \min(T_{j+1}, \epsilon_j + R_{j+1})`
+:math:`\delta_{\gamma, \rho_0, \iota}^- = \sum_{j=0}`
 
-:math:`\epsilon_j = 2\cdot T_{j} - R_{j} - T_{j+1} - \epsilon_{j-1}`
+:math:`\delta_{\gamma, \rho_0, \iota}^+ = R_{\gamma0} + \sum_{j=0}^{j = |\gamma|-2} T_{j+1} + \min(T_{j+1}, \epsilon_j + R_{j+1})`
 
-:math:`\epsilon_{-1} = 0`
+:math:`\epsilon_j = 2\cdot T_{j} - R_{j} - T_{j+1} - \epsilon_{j-1} \text{ with } \epsilon_{-1} = 0`
 
 To find relevant methods, see :ref:`method-task-chain-early-reaction`.
 
 |
 
-.. _reaction-update-equation:
+* **Worst-case Task-Chain Age (Implicit)**
 
-**Reaction Update**
--------------------
+:math:`\delta_{i, \alpha, \iota}^+ = T_{j=0} + \delta_{i, \rho_0, \iota}^+ - \delta_{i, \rho_0, \iota}^-`
 
-Accordingly, the reaction update is the subtraction of two consecutive task chains instances best case early reaction and worst case early reaction.
+* **Worst-case Task-Chain Age (LET)**
 
-:math:`\delta_{\gamma, \upsilon, \iota}^+ = \max_{k} \left(T_{j=0} + \delta_{\gamma, \rho 0, \iota, k+1}^+ - \delta_{\gamma, \rho , \iota, k}^- \right)`
+:math:`\delta_{i, \alpha, \lambda}^+ = T_{j=0} + \delta_{i, \rho, \lambda}^- - \delta_{i, \rho, \lambda}^+`
+
+To find relevant methods, see :ref:`method-task-chain-age`.
 
 |
 
@@ -224,14 +203,22 @@ Accordingly, the reaction update is the subtraction of two consecutive task chai
 It describes the longest time some data version persists in memory. 
 This is independent of task chains and simply depends on the period of entities writing a particular label (i.e. data).
 
+* Best-case Task Age
+
+:math:`\delta_{i,\alpha}^- = T_i - R_i^+ + R_i^-`
+
+* Worst-case Task Age
+
+:math:`\delta_{i,\alpha}^+ = T_i - R_i^- + R_i^+`
+
 * **Best-case Data Age**
 
-:math:`\delta_{l,\alpha}^+ = \min_i \delta_{i,\alpha}^+` 
+:math:`\delta_{l,\alpha}^- = \min_i \delta_{i,\alpha}^-` 
 with :math:`\tau_i` being any task that accesses label :math:`l`.
 
 * **Worst-case Data Age**
 
-:math:`\delta_{l,\alpha}^- = \min_i \delta_{i,\alpha}^- %R_i^- + (T_i - R_i^+)` 
+:math:`\delta_{l,\alpha}^+ = \min_i \delta_{i,\alpha}^+` 
 with :math:`\tau_i` being any task that accesses label :math:`l`.
 
 To find relevant methods, see :ref:`method-data-age`.
