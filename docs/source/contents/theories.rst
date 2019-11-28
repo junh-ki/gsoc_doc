@@ -70,7 +70,7 @@ This concept is used in two of the four execution cases introduced by a method, 
 
 |
 
-.. _response-time:
+.. _wc-response-time:
 
 **Worst-case Response Time**
 ============================
@@ -87,7 +87,7 @@ To find relevant methods, see :ref:`method-response-time-sum`.
 
 |
 
-.. _response-time:
+.. _bc-response-time:
 
 **Best-case Response Time**
 ===========================
@@ -99,8 +99,8 @@ Unlike the worst-case analysis, considering all tasks arriving at the same point
 .. math::
     :nowrap:
 
-    \mbox{ with } R_i^0 = R_i^+\\
-    \text{ where } \left\lceil x \right\rceil_0 = \max(0, \left\lceil x \right\rceil)
+    with R_i^0 = R_i^+\\
+    where \left\lceil x \right\rceil_0 = \max(0, \left\lceil x \right\rceil)
 
 .. math::
    :nowrap:
