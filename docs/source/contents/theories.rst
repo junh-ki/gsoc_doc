@@ -100,6 +100,7 @@ Unlike the worst-case analysis, considering all tasks arriving at the same point
     :nowrap:
 
     with R_i^0 = R_i^+\\
+    
     where \left\lceil x \right\rceil_0 = \max(0, \left\lceil x \right\rceil)
 
 .. math::
