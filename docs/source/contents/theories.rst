@@ -35,7 +35,7 @@ Memory access time is different depending on the target hardware.
 In this project, the memory access time is defined based on NVIDIA-TX2 platform.
 The equation for deriving this is referenced the WATERS19 projects namely `CPU-GPU Response Time and Mapping Analysis for High-Performance Automotive Systems <https://www.ecrts.org/forum/viewtopic.php?f=43&t=134&sid=777ff03160a9434451d721748c8a8aea#p264>`_
 
-:math:`L_{a,i}^+ = \sum_{x \in \mathcal{R}_i} \left( \left\lceil \frac {\mathcal{S}_x} {64} \right \rceil \right) \cdot \frac {L_{\uparrow m\to l}} {f_m} + \sum_{y \in \mathcal{W}_i} \left(  \left \lceil \frac {\mathcal{S}_y} {64} \right \rceil \right) \cdot \frac {L_{\downarrow m\to l}} {f_m}`
+:math:`L_{a,i} = \sum_{x \in \mathcal{R}_i} \left( \left\lceil \frac {\mathcal{S}_x} {64} \right \rceil \right) \cdot \frac {L_{\uparrow m\to l}} {f_m} + \sum_{y \in \mathcal{W}_i} \left(  \left \lceil \frac {\mathcal{S}_y} {64} \right \rceil \right) \cdot \frac {L_{\downarrow m\to l}} {f_m}`
 
 Here, the constant 64 is used as the baseline derived from the WATERS19 challenge description.
 :math:`ls` denotes the label size and :math:`rl` and :math:`wl` define given read label and write label latencies specified in the given AMALTHEA model.
@@ -72,13 +72,43 @@ This concept is used in two of the four execution cases introduced by a method, 
 
 .. _response-time:
 
-**Response Time**
-=================
+**Worst-case Response Time**
+============================
 
 The response time analysis approach implemented here is not only designed for Multi-core Systems but also for Heterogeneous Systems.
 Basically, the following classical response time analysis equation is used.
 
 :math:`R_i^+ = C_i^+ + \sum_{j \in hp(i)} \left\lceil \frac {R_{i-1}^+} {T_j} \right\rceil C_j^+`
+
+The equation is based on RMS (Rate Monotonic Scheduling) which means that static priorities are assigned to tasks according to their period. A task with the shorter period results in a higher task priority.
+Here, :math:`R_i` denotes the response time of task :math:`\tau_i` and :math:`hp(i)` is the set of tasks indexes (j) which have a priority higher than task i.
+
+To find relevant methods, see :ref:`method-response-time-sum`.
+
+|
+
+.. _response-time:
+
+**Best-case Response Time**
+===========================
+
+Unlike the worst-case analysis, considering all tasks arriving at the same point of time does not work since every new task instance can have a different response time after the first iteration as long as it is not the highest priority task. Hence, the response time analysis which takes this point into account is required.
+
+:math:`R_i^{n+1} = C_i^- + \sum_{j \in hp(i)} \left\lceil \frac {R_i^n - J_j - T_j} {T_j} \right\rceil_0 C_j^- \mbox{ for } n = 0, 1, 2, ...`
+
+.. math::
+    :nowrap:
+
+    \mbox{ with } R_i^0 = R_i^+\\
+    \text{ where } \left\lceil x \right\rceil_0 = \max(0, \left\lceil x \right\rceil)
+
+.. math::
+   :nowrap:
+
+   \begin{eqnarray}
+      y    & = & ax^2 + bx + c \\
+      f(x) & = & x^2 + 2xy + y^2
+   \end{eqnarray}
 
 The equation is based on RMS (Rate Monotonic Scheduling) which means that static priorities are assigned to tasks according to their period. A task with the shorter period results in a higher task priority.
 Here, :math:`R_i` denotes the response time of task :math:`\tau_i` and :math:`hp(i)` is the set of tasks indexes (j) which have a priority higher than task i.

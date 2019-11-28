@@ -40,7 +40,8 @@ extensions = [
     'sphinx.ext.todo', 
     'sphinx.ext.mathjax', 
 	'sphinx.ext.ifconfig', 
-	'sphinx_rtd_theme',
+	'sphinx.ext.imgmath',
+    'sphinx_rtd_theme',
 	'recommonmark'
 ]
 
@@ -67,6 +68,10 @@ gettext_compact = False
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+
+
+imgmath_latex_preamble = r'\usepackage{array}'
+imgmath_image_format = 'svg'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
