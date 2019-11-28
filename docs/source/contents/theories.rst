@@ -97,7 +97,6 @@ Unlike the worst-case analysis, considering all tasks arriving at the same point
 :math:`R_i^{n+1} = C_i^- + \sum_{j \in hp(i)} \left\lceil \frac {R_i^n - J_j - T_j} {T_j} \right\rceil_0 C_j^- \mbox{ for } n = 0, 1, 2, ...`
 
 .. math::
-    :nowrap:
 
     \mbox{ with } R_i^0 = R_i^+
 
