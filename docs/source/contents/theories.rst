@@ -85,8 +85,6 @@ Here, :math:`R_i` denotes the response time of task :math:`\tau_i` and :math:`hp
 
 To find relevant methods, see :ref:`method-response-time-sum`.
 
-|
-
 .. _bc-response-time:
 
 **Best-case Response Time**
@@ -102,18 +100,7 @@ Unlike the worst-case analysis, considering all tasks arriving at the same point
 
     \mbox{ where } \left\lceil x \right\rceil_0 = \max(0, \left\lceil x \right\rceil)
 
-.. math::
-   :nowrap:
-
-   \begin{eqnarray}
-      y    & = & ax^2 + bx + c \\
-      f(x) & = & x^2 + 2xy + y^2
-   \end{eqnarray}
-
 The equation is based on RMS (Rate Monotonic Scheduling) which means that static priorities are assigned to tasks according to their period. A task with the shorter period results in a higher task priority.
-Here, :math:`R_i` denotes the response time of task :math:`\tau_i` and :math:`hp(i)` is the set of tasks indexes (j) which have a priority higher than task i.
-
-To find relevant methods, see :ref:`method-response-time-sum`.
 
 |
 
@@ -154,40 +141,101 @@ The time between the task chain's first task release to the earliest task respon
 
 .. _task-chain-reaction-implicit:
 
-**Task Chain Reaction (Implicit)**
-----------------------------------
+**Task Chain Reaction (Implicit Communication Paradigm)**
+---------------------------------------------------------
 
-* **Best-case Task-Chain Reaction (Implicit Communication Paradigm)**
+* **Best-case Task-Chain Reaction (Implicit)**
 
-:math:`\delta_{\gamma,\rho,\iota} ^-=\sum_j R_{j}^- \text{ with } \tau_j \in \gamma`
+:math:`\delta_{\gamma,\rho,\iota}^- = R_{\gamma_0}^- + \sum_{j=1}^{|\gamma|-1} (R_j^- - ip(\tau_j)^-)`
 
-The best-case task chain reaction latency for implicit communication can be calculated by considering the sum of all task's best case response times within task chain.
-Here, :math:`\gamma` refers to a task chain, :math:`\rho` corresponds the reaction latency, and :math:`\iota` outlines that this latency considers the implicit communication paradigm.
+.. math::
+    
+    ip(\tau_j)^- = R_j^- - C_j^-
 
-* **Worst-case Task-Chain Reaction (Implicit Communication Paradigm)**
+The best-case task chain reaction latency with Implicit communication can be calculated by summing up the first chain element's best-case response time and the rest of all task's best-case response times which are subtracted by each task's best-case initial pending time.
+Here, :math:`\gamma` refers to a task chain, :math:`\rho` corresponds the reaction latency, :math:`\iota` is Implicit communication paradigm, and :math:`ip(\tau_j)^-` stands for the best-case initial pending time of :math:`tau_j`.
 
-:math:`\delta_{\gamma,\rho,\iota}^+ = \sum_{j=0}^{j=|\gamma|-2} \left(T_{j} + R_{j}^+\right) +R_{j = |\gamma|-1}^+ \text{ with } \tau_j \in \gamma`
+* **Worst-case Task-Chain Reaction (Implicit)**
+
+:math:`\delta_{\gamma,\rho,\iota}^+ = T_{\gamma_0} + R_{\gamma_0}^+ + \sum_{j=1}^{|\gamma|-1} (R_j^+ + f(j))`
+
+.. math::
+
+    f(j) =  
+        \begin{cases}
+            T_j - ip(\tau_j)^- & \text{ if } j \ne |\gamma|-1 \\ 
+            - ip(\tau_j)^+ & \text{ else }
+        \end{cases}
+
+:math:`ip(\tau_j)^+ = f(0, R_{(j-1) \in hp(j)}^+)`
+
+.. math::
+
+    f(k, R) = 
+        \begin{cases}
+            R & \text{ if } \mbox{ } (k == |hp(j-1)|) \mbox{ } \lor \mbox{ } (R < T_{hp(j-1)_k}) \\ 
+            f(k+1, R) & \text{ else if } \mbox{ } (R \mathbin{\%} T_{hp(j-1)_k}) \ne 0 \\
+            f(0, R+C_{hp(j-1)_k}^+) & \text{ else }
+        \end{cases}
 
 To find relevant methods, see :ref:`method-task-chain-reaction-implicit`.
+
+* **Best-case Task-Chain Initial Reaction (Implicit)**
+
+:math:`\delta_{\gamma,\rho_0,\iota}^- = \delta_{\gamma,\rho,\iota}^-`
+
+The best-case reaction is always equal to the best-case initial reaction of a task chain with Implicit communication.
+
+* **Worst-case Task-Chain Initial Reaction (Implicit)**
+
+:math:`\delta_{\gamma,\rho_0,\iota}^+ = R_{\gamma_0}^+ + \sum_{j=1}^{|\gamma|-1}(R_j^+ + f(j))`
+
+.. math::
+
+    f(j) = 
+        \begin{cases}
+            T_{j-1} - ip(\gamma_j)^+ & \text{ if } \mbox{ } (T_j \geq T_{j-1}) \land \mbox{ } (|\gamma|-1 < 3) \\
+            - ip(\gamma_j)^+ & \text{ else if } \mbox{ } (T_j \geq T_{j-1}) \land \mbox{ } (j == |\gamma|-1) \\
+            T_{j-1} + T_j - ip(\gamma_j)^- & \text{ else if } \mbox{ } (T_j \geq T_{j-1}) \mbox{ } \land \mbox{ } (j == 1) \\
+            T_j - ip(\gamma_j)^- & \text{ else }
+        \end{cases}
 
 |
 
 .. _task-chain-reaction-let:
 
-**Task Chain Reaction (LET)**
------------------------------
+**Task Chain Reaction (Logical Execution Time Communication Paradigm)**
+-----------------------------------------------------------------------
 
-* **Best-case Task-Chain Reaction (Logical Execution Time)**
+* **Best-case Task Chain Reaction (LET)**
 
-:math:`\delta_{\gamma,\rho,\lambda} ^- = \sum_j T_{j} \text{ with } \tau_j \in \gamma`
+:math:`\delta_{\gamma,\rho,\lambda}^- = \sum_{j=0}^{|\gamma|-1} T_j \mbox{ with } \tau_j \in \gamma`
 
 The best-case task chain reaction latency for LET communication is the sum of all task's periods within task chain :math:`\gamma`.
 
-* **Worst-case Task-Chain Reaction (Logical Execution Time)**
+* **Worst-case Task Chain Reaction (LET)**
 
-:math:`\delta_{\gamma,\rho, \lambda}^+= T_{j=0}+\sum_{j=1}^{j=|\gamma|-1} \left(2\cdot T_{j}\right) \text{ with } \tau_j \in \gamma`
+:math:`\delta_{\gamma,\rho,\lambda}^+ = \sum_{j=0}^{|\gamma|-2} (2 \cdot T_j) + T_{|\gamma|-1}`
 
 To find relevant methods, see :ref:`method-task-chain-reaction-let`.
+
+* **Best-case Task Chain Initial Reaction (LET)**
+
+:math:`\delta_{\gamma,\rho_0,\lambda}^- = \delta_{\gamma,\rho,\lambda}^-`
+
+The best-case reaction is always the initial reaction of a task chain.
+
+* **Worst-case Task Chain Initial Reaction (LET)**
+
+:math:`\delta_{\gamma,\rho_0,\lambda}^+ = T_0 + \sum_{j=1}^{|\gamma|-1} (T_j + f(j))`
+
+.. math::
+
+    f(j) =  
+        \begin{cases}
+            T_{j-1} & \text{ if } (T_j > T_{j-1}) \\
+            T_j & \text{ else }
+        \end{cases}
 
 |
 
@@ -198,30 +246,52 @@ To find relevant methods, see :ref:`method-task-chain-reaction-let`.
 
 "The time a task chain result is initially available until the next task chain instance's initial results are available. In other words, the task chain age latency is the maximal time a task chain's results based on the same input persist in memory."
 
-.. _early-reaction:
+* **Best-case Task Chain Age (Implicit)**
 
-**Early Reaction**
-------------------
+:math:`\delta_{\gamma,\alpha,\iota}^- = T_{\gamma_0} + \delta_{\gamma,\rho_0,\iota}^- - \delta_{\gamma,\rho,\iota}^+`
 
-:math:`\delta_{\gamma, \rho_0, \iota}^- = \sum_{j=0}`
+* **Worst-case Task Chain Age (Implicit)**
 
-:math:`\delta_{\gamma, \rho_0, \iota}^+ = R_{\gamma0} + \sum_{j=0}^{j = |\gamma|-2} T_{j+1} + \min(T_{j+1}, \epsilon_j + R_{j+1})`
+:math:`\delta_{\gamma,\alpha,\iota}^+ = T_{\gamma_0} + \delta_{\gamma,\rho_0,\iota}^+ - \delta_{\gamma,\rho_0,\iota}^-`
 
-:math:`\epsilon_j = 2\cdot T_{j} - R_{j} - T_{j+1} - \epsilon_{j-1} \text{ with } \epsilon_{-1} = 0`
+* **Worst-case Task Chain Age (LET)**
 
-To find relevant methods, see :ref:`method-task-chain-early-reaction`.
+:math:`\delta_{\gamma,\alpha,\lambda}^- = T_{|\gamma|-1}`
+
+* **Worst-case Task Chain Age (LET)**
+
+:math:`\delta_{\gamma,\alpha,\lambda}^+ = T_{\gamma_0} + \sum_{j=1}^{|\gamma|-1}f(j)`
+
+.. math::
+
+    f(j) =  
+        \begin{cases}
+            2 \cdot T_j - f(j-1) & \text{ if } \mbox{ } (T_j == f(j-1)) \\
+            T_j - f(j-1) & \text{ else if } \mbox{ } (T_j > f(j-1)) \\
+            T_j \cdot \left\lceil \frac{f(j-1)}{T_j} \right\rceil - f(j-1) & \text{ else if } \mbox{ } (T_j < f(j-1)) \mbox{ } \land \\
+             & \mbox{ }\mbox{ }\mbox{ }\mbox{ }\mbox{ }\mbox{ }\mbox{ }\mbox{ }\mbox{ }\mbox{ }\mbox{ } (f(j-1) \mathbin{\%} T_j \ne 0) \\
+            T_j \cdot (\frac{f(j-1)}{T_j} + 1) - f(j-1) & \text{ else }
+        \end{cases}
+
+.. math::
+    \mbox{ with } f(0) = T_0
 
 |
 
-* **Worst-case Task-Chain Age (Implicit)**
+.. _task-age:
 
-:math:`\delta_{i, \alpha, \iota}^+ = T_{j=0} + \delta_{i, \rho_0, \iota}^+ - \delta_{i, \rho_0, \iota}^-`
+**Task Age**
+============
 
-* **Worst-case Task-Chain Age (LET)**
+The Task Age refers to the time from a task instance's result is available until the next instance's result from the same task appears.
 
-:math:`\delta_{i, \alpha, \lambda}^+ = T_{j=0} + \delta_{i, \rho, \lambda}^- - \delta_{i, \rho, \lambda}^+`
+* **Best-case Task Age (Implicit)**
 
-To find relevant methods, see :ref:`method-task-chain-age`.
+:math:`\delta_{j,\alpha}^- = (T_j - R_j^+) + R_j^- = T_j - R_j^+ + R_j^-`
+
+* **Worst-case Task Age (Implicit)**
+
+:math:`\delta_{j,\alpha}^+ = (T_j - R_j^-) + R_j^+ = T_j - R_j^- + R_j^+`
 
 |
 
@@ -233,22 +303,14 @@ To find relevant methods, see :ref:`method-task-chain-age`.
 It describes the longest time some data version persists in memory. 
 This is independent of task chains and simply depends on the period of entities writing a particular label (i.e. data).
 
-* Best-case Task Age
-
-:math:`\delta_{i,\alpha}^- = T_i - R_i^+ + R_i^-`
-
-* Worst-case Task Age
-
-:math:`\delta_{i,\alpha}^+ = T_i - R_i^- + R_i^+`
-
 * **Best-case Data Age**
 
-:math:`\delta_{l,\alpha}^- = \min_i \delta_{i,\alpha}^-` 
-with :math:`\tau_i` being any task that accesses label :math:`l`.
+:math:`\delta_{l,\alpha}^- = \min_{\gamma_l} \delta_{{\gamma_l}_j, \alpha}^-` 
+with :math:`\gamma_l` being all tasks that access label :math:`l`.
 
 * **Worst-case Data Age**
 
-:math:`\delta_{l,\alpha}^+ = \min_i \delta_{i,\alpha}^+` 
-with :math:`\tau_i` being any task that accesses label :math:`l`.
+:math:`\delta_{l,\alpha}^+ = \min_{\gamma_l}\delta_{{\gamma_l}_j, \alpha}^+` 
+with :math:`\gamma_l` being all tasks that access label :math:`l`.
 
 To find relevant methods, see :ref:`method-data-age`.
