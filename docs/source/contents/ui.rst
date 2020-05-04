@@ -6,7 +6,7 @@
 **APP4RTA Location**
 --------------------
 
-.. image:: /_images/app4rta/0.png
+.. image:: /_images/app4rta/0.PNG
 	:width: 800
 	:alt: 0
 
@@ -17,7 +17,7 @@ Run `APP4RTA.java` in `org.eclipse.app4mc.gsoc_rta.ui` package.
 **Search Amalthea**
 -------------------
 
-.. image:: /_images/app4rta/1.png
+.. image:: /_images/app4rta/1.PNG
 	:width: 800
 	:alt: 1
 
@@ -28,7 +28,7 @@ Based on the horizontal line on the middle, the upper part is for response time 
 **Navigate to The Amalthea Folder**
 -----------------------------------
 
-.. image:: /_images/app4rta/2.png
+.. image:: /_images/app4rta/2.PNG
 	:width: 400
 	:alt: 2
 
@@ -39,7 +39,7 @@ Navigate to the folder where the target Amalthea model file is located.
 **Select & Open Amalthea**
 --------------------------
 
-.. image:: /_images/app4rta/3.png
+.. image:: /_images/app4rta/3.PNG
 	:width: 600
 	:alt: 3
 
@@ -50,7 +50,7 @@ Select and open an Amalthea file. In this example, a multi-core Amalthea model i
 **Amalthea Model Loaded**
 -------------------------
 
-.. image:: /_images/app4rta/4.png
+.. image:: /_images/app4rta/4.PNG
 	:width: 800
 	:alt: 4
 
@@ -61,7 +61,7 @@ After a model is loaded, it shows all the tasks (1) and processing units (2) tha
 **Integer Mapping**
 -------------------
 
-.. image:: /_images/app4rta/5.png
+.. image:: /_images/app4rta/5.PNG
     :width: 800
     :alt: 5
 
@@ -72,7 +72,7 @@ When the `Default IA` (1) button is clicked, each task's box (2) is automaticall
 **Assign Tasks to Processing Units**
 ------------------------------------
 
-.. image:: /_images/app4rta/6.png
+.. image:: /_images/app4rta/6.PNG
     :width: 800
     :alt: 6
 
@@ -83,7 +83,7 @@ When the `Enter IA` (1) button is clicked, each task is mapped to the correspond
 **Measure Response Time**
 -------------------------
 
-.. image:: /_images/app4rta/7.png
+.. image:: /_images/app4rta/7.PNG
     :width: 800
     :alt: 7
 
@@ -94,7 +94,7 @@ When the `Enter IA` (1) button is clicked, each task is mapped to the correspond
 **Task Chain Analysis**
 -----------------------
 
-.. image:: /_images/app4rta/8.png
+.. image:: /_images/app4rta/8.PNG
     :width: 800
     :alt: 8
 
@@ -105,7 +105,7 @@ Now that every task's response time is measured, it is possible to measure end-t
 **Change The Model**
 --------------------
 
-.. image:: /_images/app4rta/9.png
+.. image:: /_images/app4rta/9.PNG
     :width: 800
     :alt: 9
 
@@ -116,7 +116,7 @@ It is possible to change the observed model without clicking the `Reset` buttons
 **Single-core RTA**
 -------------------
 
-.. image:: /_images/app4rta/10.png
+.. image:: /_images/app4rta/10.PNG
     :width: 800
     :alt: 10
 
@@ -127,7 +127,7 @@ The `ChallengeModel_SingleTCs.amxmi` model only has one processing unit with fou
 **Single-core Task Chain Analysis**
 -----------------------------------
 
-.. image:: /_images/app4rta/11.png
+.. image:: /_images/app4rta/11.PNG
 	:width: 600
 	:alt: 11
 
