@@ -7,7 +7,7 @@
 --------------------
 
 .. image:: /_images/app4rta/0.PNG
-	:width: 800
+	:width: 400
 	:alt: 0
 
 Run `APP4RTA.java` in `org.eclipse.app4mc.gsoc_rta.ui` package.
